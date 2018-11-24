@@ -1,0 +1,254 @@
+/*Created by Matt Chieco and Evan Rigsby SER 310*/
+.bgnav{
+    background-color: whitesmoke !important;
+}
+.bgnav a{
+    color: grey;
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: grey;
+}
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(128,128,128, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+a.active{
+    color: white;
+    background: #663399;
+    TEXT-DECORATION: none; 
+    font-weight: none 
+}
+
+.fa {
+    padding: 5px;
+    font-size: 20px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}
+A:hover { 
+    color: white; 
+    background: #663399;
+    TEXT-DECORATION: none; 
+    font-weight: none 
+}
+.navbar-nav > li{
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.navbar .navbar-brand:hover {
+    background: transparent;
+}
+
+header {
+    background: whitesmoke;
+    border-bottom-style: solid;
+    border-bottom-color: #663399;
+    border-bottom-width: 1px;
+}
+
+.header {
+    text-align: right;
+    padding-right: 20px;
+}
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+footer {
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: 30px;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: whitesmoke;
+  }
+.container2 {
+    color: grey;
+}
+
+.tripcol {
+    text-align: center;
+}
+
+.jumbotron {
+    background-position: center;
+    background-color: white;
+    padding-top: 250px;
+    padding-bottom: 150px;
+    background-size: cover;
+}
+
+.bg-cover {
+    background-image: url("../images/group\ photo.jpg");
+    color: white;
+}
+
+h2 {
+    position: absolute;
+    bottom: 110px;
+}
+
+h3 {
+    color: #663399;
+}
+
+.content{
+    margin:50px 50px 50px 50px
+}
+.center{
+    text-align: center;
+    align-content: center;
+}
+.img2{
+    height: 225px;
+    object-fit: cover;
+}
+.card{
+    height: 525px;
+    padding-bottom: 30px;
+}
+.xxx{
+    padding-bottom: 30px;
+}
