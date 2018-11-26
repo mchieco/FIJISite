@@ -252,3 +252,8 @@ h3 {
 .xxx{
     padding-bottom: 30px;
 }
+
+.purple-background {
+    background-color:#663399;
+    color:#ffffff;
+}
