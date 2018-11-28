@@ -203,3 +203,8 @@ footer {
 .container2 {
     color: grey;
 }
+
+#footer:hover {
+    background-color: transparent;
+    color:grey;
+}

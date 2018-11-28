@@ -219,3 +219,8 @@ h1 {
     padding-left: 15px;
     padding-top: 15px;
 }
+
+#footer:hover {
+    background-color: transparent;
+    color:grey;
+}

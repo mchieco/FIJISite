@@ -256,3 +256,8 @@ h3 {
     background-color:#663399;
     color:#ffffff;
 }
+
+#footer:hover {
+    background-color: transparent;
+    color:grey;
+}

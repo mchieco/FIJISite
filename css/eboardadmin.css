@@ -130,3 +130,8 @@ margin: 8px 0;
 border: none;
 cursor: pointer;
 }
+
+#footer:hover {
+    background-color: transparent;
+    color:grey;
+}

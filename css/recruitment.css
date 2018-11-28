@@ -253,3 +253,8 @@ p {
     padding-right: 40px;
     padding-left: 40px;
 }
+
+#footer:hover {
+    background-color: transparent;
+    color:grey;
+}

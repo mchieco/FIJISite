@@ -219,3 +219,8 @@ footer {
     padding-top: 40px;
     width: 110%;
 }
+
+#footer:hover {
+    background-color: transparent;
+    color:grey;
+}

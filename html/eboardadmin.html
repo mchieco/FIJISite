@@ -27,10 +27,25 @@
         <a href="https://www.facebook.com/qufiji/" class="fa fa-facebook"></a>
         <a href="https://twitter.com/quinnipiacfiji?lang=en" class="fa fa-twitter"></a>
         <a href="https://www.instagram.com/quinnipiacfiji/?hl=en" class="fa fa-instagram"></a>
-        <button onclick="location.href = 'index.html';" class="logbtn" style="width:auto; height: 50px; background-color: #663399; margin-left: 15px;"
+        <button onclick="logoutbtn()" class="logbtn" style="width:auto; height: 50px; background-color: #663399; margin-left: 15px;"
             id="login_btn">Log Out</button>
     </div>
 </header>
+
+<script>
+    function logoutbtn() {
+        var ask = window.confirm("Are you sure you want to log out, if yes, click \"OK\"");
+        if (ask) {
+            location.href = 'index.html';
+
+        }
+    }
+</script>
+<script>
+    function eventSubmit() {
+        alert("Your event has been successfully been submitted!");
+    }
+</script>
 
 <body>
     <!-- NavBar -->
@@ -83,10 +98,13 @@
                 <div class="col">
                     <label for="time"><strong>Time of Event</strong></label>
                     <input type="time" id="time" name="time" placeholder="Enter Time" required>
-                    <button style="margin-bottom: 20px" class="btn btn-primary purple-background" value="submit">Create
+                    <button onsubmit="eventSubmit()" style="margin-bottom: 20px" class="btn btn-primary purple-background"
+                        type="submit" value="submit">Create
                         Event</button>
                 </div>
             </div>
+        </form>
+        <form>
             <h2 style="padding-top:20px;">Create Long Term Upcoming Event</h2>
             <div class="row backgrey">
                 <div class="col">
@@ -100,10 +118,13 @@
                 <div class="col">
                     <label for="time"><strong>Ending Date</strong></label>
                     <input type="date" id="date2" name="date2" placeholder="Enter Date" required>
-                    <button style="margin-bottom: 20px" class="btn btn-primary purple-background" value="submit">Create
+                    <button onsubmit="eventSubmit()" style="margin-bottom: 20px" class="btn btn-primary purple-background"
+                        type="submit" value="submit">Create
                         Event</button>
                 </div>
             </div>
+        </form>
+        <form>
             <h2 style="padding-top:20px;">Delete or Edit Event</h2>
             <div class="row backgrey">
                 <div class="col-3">
@@ -153,7 +174,8 @@
     </div>
     <footer class="footer">
         <div class="container2">
-            <span class="text-muted">© 2018 Copyright: Quinnipiac FIJI</span>
+            <span class="text-muted">© 2018 Copyright: Quinnipiac FIJI - <a id="footer" href="https://www.phigam.org">Phi
+                    Gamma Delta Headquarters</a> - Created and Maintained by Brothers </span>
         </div>
     </footer>
 </body>
