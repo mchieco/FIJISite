@@ -84,7 +84,7 @@
     </nav>
     <h1>Eboard Dashboard</h1>
     <div class="container">
-        <form>
+        <form onsubmit="eventSubmit()">
             <h2>Create One Time Upcoming Event</h2>
             <div class="row backgrey">
                 <div class="col">
@@ -98,13 +98,13 @@
                 <div class="col">
                     <label for="time"><strong>Time of Event</strong></label>
                     <input type="time" id="time" name="time" placeholder="Enter Time" required>
-                    <button onsubmit="eventSubmit()" style="margin-bottom: 20px" class="btn btn-primary purple-background"
+                    <button style="margin-bottom: 20px" class="btn btn-primary purple-background"
                         type="submit" value="submit">Create
                         Event</button>
                 </div>
             </div>
         </form>
-        <form>
+        <form onsubmit="eventSubmit()">
             <h2 style="padding-top:20px;">Create Long Term Upcoming Event</h2>
             <div class="row backgrey">
                 <div class="col">
@@ -118,7 +118,7 @@
                 <div class="col">
                     <label for="time"><strong>Ending Date</strong></label>
                     <input type="date" id="date2" name="date2" placeholder="Enter Date" required>
-                    <button onsubmit="eventSubmit()" style="margin-bottom: 20px" class="btn btn-primary purple-background"
+                    <button style="margin-bottom: 20px" class="btn btn-primary purple-background"
                         type="submit" value="submit">Create
                         Event</button>
                 </div>
