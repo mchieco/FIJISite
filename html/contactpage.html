@@ -102,10 +102,15 @@
                 </li>
         </div>
     </nav>
+    <script>
+        function eventSubmit() {
+            alert("Your event has been successfully been submitted!");
+        }
+    </script>
     <div style="padding-top: 15px">
         <h1>Contact Us</h1>
         <div class="container">
-            <form action="action_page.php">
+            <form onsubmit="eventSubmit()">
 
                 <input type="text" id="fname" name="firstname" placeholder="Enter Your First Name" required>
 

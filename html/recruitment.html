@@ -66,6 +66,11 @@
         }
     </script>
 </header>
+<script>
+    function eventSubmit() {
+        alert("Your event has been successfully been submitted!");
+    }
+</script>
 
 <body>
     <!-- NavBar -->
@@ -115,7 +120,7 @@
         <br>
     </p>
     <div class="container">
-        <form action="action_page.php">
+        <form onsubmit="eventSubmit()">
 
             <input type="text" id="name" name="name" placeholder="Enter Your Full Name" required>
 
