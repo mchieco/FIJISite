@@ -9,12 +9,12 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Quinnipiac FIJI - Current Brothers</title>
-    <link rel="shortcut icon" href="../images/Phi Gamma Delta BCL Logo-03.png" type="image/png">
-    <meta name="description" content="CurrentBrothers">
+    <title>Quinnipiac FIJI - Recruitment</title>
+    <link rel="shortcut icon" href="./images/Phi Gamma Delta BCL Logo-03.png" type="image/png">
+    <meta name="description" content="Recruitment">
     <meta name="author" content="Mattc">
 
-    <link rel="stylesheet" href="../css/currentbrothers.css" />
+    <link rel="stylesheet" href="./css/recruitment.css" />
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -66,12 +66,17 @@
         }
     </script>
 </header>
+<script>
+    function eventSubmit() {
+        alert("Your event has been successfully been submitted!");
+    }
+</script>
 
 <body>
     <!-- NavBar -->
     <nav class="navbar navbar-expand-lg bgnav">
         <a class="navbar-brand" href="index.html">
-            <img src="../images/Phi-Gamma-Delta-BCL-Logo---WEBSITE.png" width="200" height="50" alt="">
+            <img src="./images/Phi-Gamma-Delta-BCL-Logo---WEBSITE.png" width="200" height="50" alt="">
         </a>
         <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,10 +94,10 @@
                     <a class="nav-link" href="philanthropy.html">Philanthropy</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="currentbrothers.html">Current Brothers</a>
+                    <a class="nav-link" href="currentbrothers.html">Current Brothers</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="recruitment.html">Recruitment</a>
+                    <a class="nav-link active" href="recruitment.html">Recruitment</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="upcomingevents.html">Upcoming Events</a>
@@ -102,10 +107,45 @@
                 </li>
         </div>
     </nav>
-    <h1>Current Brothers</h1>
-    <div class="imgbrothers">
-        <img style="height: 900px; width: 1200px;"src="../images/allbrotherpic.jpg" alt="CurrentBrothers">
+    <h1>Recruitment</h1>
+    <p>One of the most important aspects of Phi Gamma Delta is the recruitment. Without having new members every
+        semester, the Fraternity can no longer run.
+        We strive to get the highest quality guys to step into the shoes of the current brothers. This will allow Phi
+        Gamma Delta to be a long standing fraternity on all campuses with high standing.
+        <br>
+        <br>
+        During the recruitment process, there are many social events and gatherings to get the know the brothers to see
+        if you are a good fit. If you feel you are a good fit and want to be apart of the Fraternity, please fill out
+        the form below to sign up for the recruitment process.
+        <br>
+    </p>
+    <div class="container">
+        <form onsubmit="eventSubmit()">
+
+            <input type="text" id="name" name="name" placeholder="Name" required>
+
+            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+
+            <input type="email" id="email" name="email" placeholder="Email" required>
+
+            <input style="background-color: #663399" type="submit" value="Submit">
+
+        </form>
     </div>
+    <p>
+        <br>
+        Some Benefits of Greek Life
+        <ul style="padding-left:100px;">
+            <li>Out of the 5,000 general fraternity chapters, a majority consistently achieve higher grade point
+                averages than
+                the all male averages.</li>
+            <li>65% of fraternity members graduate from college, compared with only 45% of non-members.</li>
+            <li>Of the current United States Senators and Representatives, 24% are fraternity members.</li>
+            <li>85% of the U.S. Supreme Court Justices since 1910, have been Greek.</li>
+            <li>Of the nation’s 50 largest corporations, 43 are headed by Greeks.</li>
+            <li>85% of Fortune 500 executives are fraternity members.</li>
+        </ul>
+    </p>
     <footer class="footer">
         <div class="container2">
             <span class="text-muted">© 2018 Copyright: Quinnipiac FIJI - <a id="footer" href="https://www.phigam.org">Phi
