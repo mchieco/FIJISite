@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
     assert = require('assert');
 
-//recipe module variable
+//module variables
 var Admin = require('./models/adminmodel.js');
 var Events = require('./models/eventsmodel.js');
 var Recruitment = require('./models/recruitmentmodel.js');
@@ -21,7 +21,7 @@ db.once('open', function () {
     // we're connected!
     console.log("Connected correctly to server");
 
-    // create a new recipe
+    // create a new recruitment object
     var newRecruitment = Recruitment({
         firstName: "Matt",
         lastName: "Chieco",
@@ -49,19 +49,19 @@ db.once('open', function () {
 
         console.log("Recruitment Data saved");
     });
-    // save the recruitment info
+    // save the admin info
     newAdmin.save((err) => {
         assert.equal(err, null);
 
         console.log("Admin Data saved");
     });
-    // save the recruitment info
+    // save the event info
     newEvent.save((err) => {
         assert.equal(err, null);
 
         console.log("Event Data saved");
     });
-    // save the recruitment info
+    // save the contactus info
     newContact.save((err) => {
         assert.equal(err, null);
 
