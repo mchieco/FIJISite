@@ -76,6 +76,7 @@ module.exports = {
             res.json(doc);
         })
         .catch(err=>{
+            console.log(err);
             res.status(500).send("Server error. Could not create event.");
         })
     },
@@ -93,7 +94,7 @@ module.exports = {
         }
         Events.deleteOne({"_id":req.query.id}).exec()
         .then(doc=>{
-            res.status(203).end();
+            res.status(206).end();
         })
         .catch(err=>{
             res.status(500).end();

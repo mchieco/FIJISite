@@ -21,6 +21,10 @@ router.route("/contactus")
     console.log("[Contact Us]","Got event.");
     next();
 })
+.get(checkAdmin,contactus_controller.get)//Admin
+.put(checkAdmin,contactus_controller.update) //Admin
+.post(contactus_controller.create) //Public
+.delete(checkAdmin,contactus_controller.delete); //Admin
 
 router.route("/auth")
 .all((req,res,next)=>{
@@ -33,6 +37,10 @@ router.route("/application")
     console.log("[Application]","Got event.");
     next();
 })
+.get(checkAdmin,recruitment_controller.get)//Admin
+.put(checkAdmin,recruitment_controller.update) //Admin
+.post(recruitment_controller.create) //Public
+.delete(checkAdmin,recruitment_controller.delete); //Admin
 
 function checkAdmin(req,res,next){
     next();
