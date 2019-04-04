@@ -16,13 +16,13 @@ mongoose.connect(DBconfig.url,{ useNewUrlParser: true })
         console.log("Connection to Mongoose is good!")
     })
     .catch(err => {
-        console.log("There was an error connecting!!!! TIME TO PANIC!!!!")
+        console.log("There was an error connecting!!!! TIME TO PANIC!!!!",err)
         throw "The world is ending - make sure you added the db.js file in config!!!"
     })
 
 //Connect to the router; 
 const router = require("./app/routes/router");
-app.use("/",router);
+app.use("/",router); //before sending requests to static files, we first check if they are valid API requests. 
 app.use(express.static(path.join(__dirname,"app","resources")));
 
 
