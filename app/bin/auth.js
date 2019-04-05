@@ -29,9 +29,6 @@ module.exports = {
      * @returns {Promise<token>}
      */
     decodeToken(token) {
-        var decoded = jwt.decode(token, { complete: true });
-        console.log(decoded.header);
-        console.log(decoded.payload)
         return new Promise((resolve, reject) => {
             jwt.verify(token, CONSTANTS.secret, function (err, decoded) {
                 if (err) {
@@ -101,5 +98,5 @@ module.exports = {
                 reject(new Error("No id found."))
             }
         })
-    }
+    },
 }

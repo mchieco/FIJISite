@@ -1,5 +1,6 @@
 const CONSTANTS = require("../../config/CONSTANTS")
 const auth = require("../../bin/auth")
+const Admin = require("../../models/adminmodel");
 module.exports = {
     login(req,res,next){
         let token = checkCookie(req);
@@ -39,6 +40,12 @@ module.exports = {
         .catch(err=>{
             res.status(500).send(err.message);
         })
+    },
+    create(req,res,next){
+        let data = req.body;
+        if(!data.hasOwnProperty("username") && !data.hasOwnProperty("password")){
+            return res.status(403).send("You are missing fields.")
+        }
     }
 }
 function checkCookie(req){
