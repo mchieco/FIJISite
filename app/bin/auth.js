@@ -2,6 +2,10 @@ const jwt = require("jsonwebtoken");
 const CONSTANTS = require("../config/CONSTANTS")
 const Admin = require("../models/adminmodel")
 var uniqid = require('uniqid');
+/**
+ * @typedef token
+ * @property {String} userid;
+ */
 
 /**
  * @author Joe Passanante
@@ -22,6 +26,7 @@ module.exports = {
     },
     /**
      * @author Joe Passanante
+     * @returns {Promise<token>}
      */
     decodeToken(token) {
         var decoded = jwt.decode(token, { complete: true });
@@ -54,15 +59,15 @@ module.exports = {
             module.exports.decodeToken(token)
                 .then(decodedToken => {
                     //great we have the decoded token, and its valid - lets get the ID
-                    let id = this.decodeToken.userid;
+                    let id = decodedToken.userid;
                     if (AuthorizedIds.hasOwnProperty(id)) {
                         return next();
                     } else {
-                        return res.status(401).send("No token present. ")
+                        return res.status(401).send("Not authenticated. ")
                     }
                 })
                 .catch(err => {
-                    return res.status(401).send("No token present. ")
+                    return res.status(500).send(err.message)
                 })
         })
     },
@@ -90,7 +95,7 @@ module.exports = {
     logout(id){
         return new Promise((resolve,reject)=>{
             if(AuthorizedIds.hasOwnProperty(id)){
-                delete AuthorizedIds.id;
+                delete AuthorizedIds[id];
                 resolve(true)
             }else{
                 reject(new Error("No id found."))

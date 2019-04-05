@@ -4,7 +4,8 @@ const admin_controller = require("./controllers/admin");
 const event_controller = require("./controllers/events");
 const recruitment_controller = require("./controllers/recruitment");
 const contactus_controller = require("./controllers/contactus");
-
+const auth = require("../bin/auth")
+const checkAdmin = auth.checkAdmin;
 
 router.route("/event")
 .all((req,res,next)=>{
@@ -31,6 +32,10 @@ router.route("/auth")
     console.log("[Auth]","Got event.");
     next();
 })
+.put(admin_controller.login);
+
+router.put("/auth/logout",admin_controller.logout);
+
 
 router.route("/application")
 .all((req,res,next)=>{
@@ -41,10 +46,6 @@ router.route("/application")
 .put(checkAdmin,recruitment_controller.update) //Admin
 .post(recruitment_controller.create) //Public
 .delete(checkAdmin,recruitment_controller.delete); //Admin
-
-function checkAdmin(req,res,next){
-    next();
-}
 
 
 module.exports = router;
