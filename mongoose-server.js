@@ -2,10 +2,10 @@ var mongoose = require('mongoose'),
     assert = require('assert');
 
 //module variables
-var Admin = require('./models/adminmodel.js');
-var Events = require('./models/eventsmodel.js');
-var Recruitment = require('./models/recruitmentmodel.js');
-var Contact = require('./models/contactusmodel.js');
+var Admin = require('./app/models/adminmodel.js');
+var Events = require('./app/models/eventsmodel.js');
+var Recruitment = require('./app/models/recruitmentmodel.js');
+var Contact = require('./app/models/contactusmodel.js');
 // Connection URL
 var url = 'mongodb://secretusername:secretpassword@fijicluster-shard-00-00-lrgmz.mongodb.net:27017,fijicluster-shard-00-01-lrgmz.mongodb.net:27017,fijicluster-shard-00-02-lrgmz.mongodb.net:27017/test?ssl=true&replicaSet=FIJICluster-shard-0&authSource=admin&retryWrites=true';
 
@@ -48,23 +48,55 @@ db.once('open', function () {
         assert.equal(err, null);
 
         console.log("Recruitment Data saved");
+        Recruitment.find({},(err,Recruitment)=>{
+            assert.equal(err,null);
+
+            console.log(Recruitment);
+            db.collection("Recruitment").drop(()=>{
+                db.close();
+            });
+        });
     });
     // save the admin info
     newAdmin.save((err) => {
         assert.equal(err, null);
 
         console.log("Admin Data saved");
+        Admin.find({},(err,Admin)=>{
+            assert.equal(err,null);
+
+            console.log(Admin);
+            db.collection("Admin").drop(()=>{
+                db.close();
+            });
+        });
     });
     // save the event info
     newEvent.save((err) => {
         assert.equal(err, null);
 
         console.log("Event Data saved");
+        Events.find({},(err,Events)=>{
+            assert.equal(err,null);
+
+            console.log(Events);
+            db.collection("Events").drop(()=>{
+                db.close();
+            });
+        });
     });
     // save the contactus info
     newContact.save((err) => {
         assert.equal(err, null);
 
         console.log("Contact Data saved");
+        Contact.find({},(err,Contact)=>{
+            assert.equal(err,null);
+
+            console.log(Contact);
+            db.collection("Contact").drop(()=>{
+                db.close();
+            });
+        });
     });
 });
