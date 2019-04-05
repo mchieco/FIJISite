@@ -5,7 +5,7 @@ module.exports = {
     login(req,res,next){
         let token = checkCookie(req);
         if(token==null)
-            return;
+            return res.status(403).send("Missing token..");
         
         let data = req.body;
         if(!data.hasOwnProperty("username") || !data.hasOwnProperty("password")){
@@ -16,6 +16,7 @@ module.exports = {
         auth.decodeToken(token)
         .then(token=>{
             let userid = token.userid;
+            console.log("Logging in...")
             return auth.login(userid,data.username,data.password)
         })
         .then(valid=>{
@@ -46,10 +47,27 @@ module.exports = {
         if(!data.hasOwnProperty("username") && !data.hasOwnProperty("password")){
             return res.status(403).send("You are missing fields.")
         }
+        let admin = new Admin();
+        admin.username = data.username;
+        admin.generateHash(data.password)
+        .then(password=>{
+            admin.password = password;
+            admin.save(function(err,doc){
+                if(err){
+                    return res.status(500).send(err.message);
+                }
+                return res.end();
+            })
+        })
+        .catch(err=>{
+            console.log(err);
+            res.status(400).send(err.message)
+        })
     }
 }
 function checkCookie(req){
     var cookie = req.cookies[CONSTANTS.cookieName];
+    console.log("Cookie",cookie)
     if (cookie === undefined) {
         return null
     }

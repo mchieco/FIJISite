@@ -75,26 +75,41 @@ module.exports = {
      * @param {String} username 
      * @param {String} password 
      */
-    login(id,username, password) {
-        return new Promise((resolve,reject)=>{
-            if(username=="testing" && password == "password"){
-                AuthorizedIds[id] = {date: new Date()};
-                resolve(true);
-            }else{
-                reject(new Error("Not Authorized."))
-            }
+    login(id, username, password) {
+        return new Promise((resolve, reject) => {
+            let founduser = null;
+            console.log("[Auth]", "Finding", username, password)
+            Admin.find({}).exec()
+                .then((users)=> {
+                    console.log("Found users", users)
+                    let user = users.pop();
+                    if (user == undefined || user == null) {
+                        return reject(new Error("Username does not exist."))
+                    }
+                    founduser = user;
+                    return user.validPassword(password)
+                })
+                .then(valid => {
+                    //password if valid at this point. 
+                    AuthorizedIds[id] = { Date: new Date(), user: founduser };
+                    resolve(founduser)
+                })
+                .catch(err => {
+                    console.log("err2", err)
+                    reject(err);
+                })
         })
     },
     /**
      * @author Joe Passanante
      * @param {String} id 
      */
-    logout(id){
-        return new Promise((resolve,reject)=>{
-            if(AuthorizedIds.hasOwnProperty(id)){
+    logout(id) {
+        return new Promise((resolve, reject) => {
+            if (AuthorizedIds.hasOwnProperty(id)) {
                 delete AuthorizedIds[id];
                 resolve(true)
-            }else{
+            } else {
                 reject(new Error("No id found."))
             }
         })

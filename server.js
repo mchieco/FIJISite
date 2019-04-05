@@ -9,6 +9,7 @@ const CONSTANTS = require("./app/config/CONSTANTS")
 const DBconfig = require("./app/config/dbconfig")
 const Auth = require("./app/bin/auth");
 const cookieParser = require("cookie-parser");
+const Admin = require("./app/models/adminmodel")
 app.use(bodyparser.json()); // get information from html forms
 app.use(cookieParser());
 //Here we are going to give them a webtoken because i feel like it. 
@@ -18,7 +19,7 @@ app.use((req, res, next) => {
     if (cookie === undefined) {
         Auth.createToken()
             .then((token) => {
-                res.cookie(CONSTANTS.cookieName, token, { maxAge: 3600 * 1000, httpOnly: false });
+                res.cookie(CONSTANTS.cookieName, token, { maxAge: 3600 * 1000, httpOnly: true });
                 next(); // <-- important!
             })
     }

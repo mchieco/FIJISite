@@ -32,6 +32,7 @@ router.route("/auth")
     console.log("[Auth]","Got event.");
     next();
 })
+.post(admin_controller.create)
 .put(admin_controller.login);
 
 router.put("/auth/logout",admin_controller.logout);

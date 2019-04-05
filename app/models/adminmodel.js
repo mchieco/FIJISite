@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
+var bcrypt = require("bcrypt-nodejs");
 var Schema = mongoose.Schema;
-
 var adminSchema = new Schema({
 	username : { 	
 			type : String,
@@ -40,6 +40,6 @@ adminSchema.methods.validPassword = function(password) {
     })
 };
 
-var Admin = mongoose.model('Admin', adminSchema);
+var Admin = mongoose.model('Admin', adminSchema,"admins");
 
 module.exports = Admin;
