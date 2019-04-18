@@ -10,7 +10,7 @@ var uniqid = require('uniqid');
 /**
  * @author Joe Passanante
  */
-const AuthorizedIds = {}
+const AuthorizedIds = {} //This should be saved in a database, so that on server restart -> Users are not logged out. 
 
 module.exports = {
     /**

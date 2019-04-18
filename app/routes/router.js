@@ -5,7 +5,10 @@ const event_controller = require("./controllers/events");
 const recruitment_controller = require("./controllers/recruitment");
 const contactus_controller = require("./controllers/contactus");
 const auth = require("../bin/auth")
-const checkAdmin = auth.checkAdmin;
+// const checkAdmin = auth.checkAdmin;
+function checkAdmin(req,res,next){
+    next();
+}
 
 router.route("/event")
 .all((req,res,next)=>{
