@@ -27,13 +27,6 @@ module.exports = {
         })
     },
     //This will need to be restricted to admins
-    /**
-     * @author Joe Passanante
-     * @param {Express.Request} req 
-     * @param {Express.Response} res 
-     * @description This should be blocked to admins only. 
-     * @param {*} next 
-     */
     updateEvent(req,res,next){
         console.log("Update...")
         //we check the req for an id
@@ -50,13 +43,7 @@ module.exports = {
             res.status(500).send("There was an error.")
         })
     },
-        /**
-     * @author Joe Passanante
-     * @param {Express.Request} req 
-     * @param {Express.Response} res 
-     * @description This should be blocked to admins only. 
-     * @param {*} next 
-     */
+
     createEvent(req,res,next){
         console.log("Getting...");
         let data = req.body;
@@ -73,20 +60,14 @@ module.exports = {
             endDate: new Date(endDate)
         })
         .then(doc=>{
-            res.json(doc);
+            res.status(201).json(doc);
         })
         .catch(err=>{
             console.log(err);
             res.status(500).send("Server error. Could not create event.");
         })
     },
-        /**
-     * @author Joe Passanante
-     * @param {Express.Request} req 
-     * @param {Express.Response} res 
-     * @description This should be blocked to admins only. 
-     * @param {*} next 
-     */
+
     deleteEvent(req,res,next){
         console.log("Removing....");
         if(!req.query.hasOwnProperty("id")){
@@ -94,7 +75,7 @@ module.exports = {
         }
         Events.deleteOne({"_id":req.query.id}).exec()
         .then(doc=>{
-            res.status(206).end();
+            res.status(204).end();
         })
         .catch(err=>{
             res.status(500).end();

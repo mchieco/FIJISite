@@ -7,16 +7,18 @@ var uniqid = require('uniqid');
  * @property {String} userid;
  */
 
+<<<<<<< HEAD
 /**
  * @author Joe Passanante
  */
 const AuthorizedIds = {} //This should be saved in a database, so that on server restart -> Users are not logged out. 
+=======
+
+const AuthorizedIds = {}
+>>>>>>> e05c23b759a4557c1e2cd957b8d64c7872664185
 
 module.exports = {
-    /**
-     * @author Joe Passanante
-     * @returns {Promise<JsonWebKey>}
-     */
+
     createToken() {
         return new Promise((resolve, reject) => {
             let id = uniqid()
@@ -24,10 +26,7 @@ module.exports = {
             resolve(token);
         })
     },
-    /**
-     * @author Joe Passanante
-     * @returns {Promise<token>}
-     */
+
     decodeToken(token) {
         return new Promise((resolve, reject) => {
             jwt.verify(token, CONSTANTS.secret, function (err, decoded) {
@@ -39,12 +38,7 @@ module.exports = {
 
         })
     },
-    /**
-     * @author Joe Passanante
-     * @param {} req 
-     * @param {*} res 
-     * @param {*} next 
-     */
+
     checkAdmin(req, res, next) {
         //get token
         var cookie = req.cookies[CONSTANTS.cookieName];
@@ -100,10 +94,7 @@ module.exports = {
                 })
         })
     },
-    /**
-     * @author Joe Passanante
-     * @param {String} id 
-     */
+
     logout(id) {
         return new Promise((resolve, reject) => {
             if (AuthorizedIds.hasOwnProperty(id)) {
