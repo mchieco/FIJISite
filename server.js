@@ -25,10 +25,10 @@ app.use((req, res, next) => {
     }
     else {
         // yes, cookie was already present 
-        console.log('cookie exists', cookie);
+        // console.log('cookie exists', cookie);
         Auth.decodeToken(req.cookies[CONSTANTS.cookieName])
         .then(token=>{
-            console.log("FOUND",token);
+            // console.log("FOUND",token);
             next(); // <-- important!
         })
         .catch(err=>{
