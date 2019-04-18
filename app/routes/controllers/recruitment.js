@@ -59,7 +59,7 @@ module.exports = {
             phoneNumber: data.phoneNumber
         })
         .then(doc=>{
-            res.json(doc);
+            res.status(201).json(doc);
         })
         .catch(err=>{
             console.log(err);
@@ -74,7 +74,7 @@ module.exports = {
         }
         Recruit.deleteOne({"_id":req.query.id}).exec()
         .then(doc=>{
-            res.status(206).end();
+            res.status(204).end();
         })
         .catch(err=>{
             res.status(500).end();
