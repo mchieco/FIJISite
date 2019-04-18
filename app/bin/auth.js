@@ -7,16 +7,11 @@ var uniqid = require('uniqid');
  * @property {String} userid;
  */
 
-/**
- * @author Joe Passanante
- */
+
 const AuthorizedIds = {}
 
 module.exports = {
-    /**
-     * @author Joe Passanante
-     * @returns {Promise<JsonWebKey>}
-     */
+
     createToken() {
         return new Promise((resolve, reject) => {
             let id = uniqid()
@@ -24,10 +19,7 @@ module.exports = {
             resolve(token);
         })
     },
-    /**
-     * @author Joe Passanante
-     * @returns {Promise<token>}
-     */
+
     decodeToken(token) {
         return new Promise((resolve, reject) => {
             jwt.verify(token, CONSTANTS.secret, function (err, decoded) {
@@ -39,12 +31,7 @@ module.exports = {
 
         })
     },
-    /**
-     * @author Joe Passanante
-     * @param {} req 
-     * @param {*} res 
-     * @param {*} next 
-     */
+
     checkAdmin(req, res, next) {
         //get token
         var cookie = req.cookies[CONSTANTS.cookieName];
@@ -100,10 +87,7 @@ module.exports = {
                 })
         })
     },
-    /**
-     * @author Joe Passanante
-     * @param {String} id 
-     */
+
     logout(id) {
         return new Promise((resolve, reject) => {
             if (AuthorizedIds.hasOwnProperty(id)) {
