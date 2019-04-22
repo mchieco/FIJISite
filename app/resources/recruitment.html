@@ -1,7 +1,7 @@
 <!--Created by Matt Chieco and Evan Rigsby SER 310-->
 <!doctype html>
 
-<html lang="en">
+<html lang="en" ng-app="fijiApp">
 
 <head>
     <meta charset="utf-8">
@@ -15,6 +15,7 @@
     <meta name="author" content="Mattc">
 
     <link rel="stylesheet" href="./css/recruitment.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -120,15 +121,15 @@
         <br>
     </p>
     <div class="container">
-        <form onsubmit="eventSubmit()">
+        <form id="recForm" name="recForm"ng-controller="RecController" ng-submit="submitForm()">
 
-            <input type="text" id="fname" name="firstname" placeholder="First Name" required>
+            <input ng-model="fname"type="text" id="fname" name="firstname" placeholder="First Name" required>
 
-            <input type="text" id="lname" name="lastname" placeholder="Last Name" required>
+            <input ng-model="lname"type="text" id="lname" name="lastname" placeholder="Last Name" required>
 
-            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+            <input ng-model="phone" type="tel" id="phone" name="phone" placeholder="Phone Number" required>
 
-            <input type="email" id="email" name="email" placeholder="Email" required>
+            <input ng-model="email" type="email" id="email" name="email" placeholder="Email" required>
 
             <input style="background-color: #663399" type="submit" value="Submit">
 
@@ -155,5 +156,30 @@
         </div>
     </footer>
 </body>
+<script>
+    function clearField() {
+        document.getElementById("recForm").reset();
+    }
+var postApp = angular.module('fijiApp', []);
+    postApp.controller('RecController', function($scope, $http) {
+      $scope.user = {};
+        $scope.submitForm = function() {
+        $http({
+          method  : 'POST',
+          url     : '/application',
+          data    : {
+            firstName : $scope.fname,
+            lastName : $scope.lname,
+            email : $scope.email,
+            phoneNumber : $scope.phone,
+          },
+          headers : { 'Content-Type': 'application/json' } 
+         })
+          .success(function(data) {
+            clearField();
+          });
+        };
+    });
+</script>
 
 </html>
