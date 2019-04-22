@@ -111,14 +111,19 @@
     <div style="padding-top: 15px">
         <h1>Contact Us</h1>
         <div class="container">
-            <form name="contactForm" id="contactForm" ng-submit="submitForm()" ng-controller="contactController">
+            <form name="contactForm" id="contactForm" ng-submit="submitForm()" ng-controller="contactController" novalidate>
 
-                <input ng-model="fname"type="text" id="fname" name="firstname" placeholder="First Name" required>
+                <span style="color:red" ng-show="contactForm.fname.$error.required && !contactForm.fname.$pristine">First Name is required.</span>
+                <input ng-model="fname"type="text" id="fname" name="fname" placeholder="First Name" required>
 
-                <input ng-model="lname"type="text" id="lname" name="lastname" placeholder="Last Name" required>
+                <span style="color:red" ng-show="contactForm.lname.$error.required && !contactForm.lname.$pristine">Last Name is required.</span>
+                <input ng-model="lname"type="text" id="lname" name="lname" placeholder="Last Name" required>
 
+                <span style="color:red" ng-show="contactForm.email.$error.required && !contactForm.email.$pristine">Email is required.</span>
+                <span style="color:red" ng-show="contactForm.email.$error.email">Invalid email address.</span>
                 <input ng-model="email" type="email" id="email" name="email" placeholder="Email" required>
 
+                <span style="color:red" ng-show="contactForm.subject.$error.required && !contactForm.subject.$pristine">Subject is Required.</span>
                 <textarea ng-model="subject" id="subject" name="subject" placeholder="Write something.." style="height:200px" required></textarea>
 
                 <input style="background-color: #663399" type="submit" value="Submit">
@@ -155,6 +160,7 @@
              })
               .success(function(data) {
                 clearField();
+                alert("Contact Form has been Submitted!");
               });
             };
         });
