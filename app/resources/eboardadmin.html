@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="./css/eboardadmin.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -173,6 +174,9 @@
             </div>
         </form>
     </div>
+    <div ng-controller="adminController">
+        <li ng-repeat="event in events">{{event.name}}</li>
+    </div>
     <footer class="footer">
         <div class="container2">
             <span class="text-muted">© 2018 Copyright: Quinnipiac FIJI - <a id="footer" href="https://www.phigam.org">Phi
@@ -180,5 +184,8 @@
         </div>
     </footer>
 </body>
+
+<script type='text/javascript' src="./app/app.js"></script>
+<script type='text/javascript' src="./app/controllers/adminController.js"></script>
 
 </html>

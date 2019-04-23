@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="./css/contactpage.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -139,31 +140,7 @@
     </footer>
 </body>
 
-<script>
-        function clearField() {
-            document.getElementById("contactForm").reset();
-        }
-    var postApp = angular.module('fijiApp', []);
-        postApp.controller('contactController', function($scope, $http) {
-          $scope.user = {};
-            $scope.submitForm = function() {
-            $http({
-              method  : 'POST',
-              url     : '/contactus',
-              data    : {
-                firstName : $scope.fname,
-                lastName : $scope.lname,
-                email : $scope.email,
-                message : $scope.subject,
-              },
-              headers : { 'Content-Type': 'application/json' } 
-             })
-              .success(function(data) {
-                clearField();
-                alert("Contact Form has been Submitted!");
-              });
-            };
-        });
-    </script>
+<script type='text/javascript' src="./app/controllers/contactcontroller.js"></script>
+<script type='text/javascript' src="./app/controllers/contactcontroller.js"></script>
 
 </html>
