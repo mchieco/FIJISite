@@ -6,6 +6,9 @@ fijiApp.controller('adminrecruitmentController', function($scope, $http) {
     });
     $scope.remove = function(id) {
       console.log(id);
-      $http.delete('/application/' + id)
+      $http.delete('/application?id=' + id)
+      .then(function(res) {
+        window.location.reload();
+      });
     };
 });
