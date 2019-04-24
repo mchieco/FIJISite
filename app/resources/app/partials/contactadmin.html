@@ -1,3 +1,16 @@
 <div ng-controller="admincontactController">
-    <li ng-repeat="contact in contacts">{{contact.firstName}}</li>
+    <div style="margin-top: 20px">
+        <div class="row" style="font-size: 18px">
+            <div class="col-3"><strong>First Name</strong></div>
+            <div class="col-3"><strong>Last Name</strong></div>
+            <div class="col-3"><strong>Email</strong></div>
+            <div class="col-3"><strong>Message</strong></div>
+        </div>
+        <div ng-repeat="contact in contacts" class="row">
+            <div class="col-3">{{contact.firstName}}</div>
+            <div class="col-3">{{contact.lastName}}</div>
+            <div class="col-3">{{contact.email}}</div>
+            <div class="col-3">{{contact.message}}</div>
+        </div>
+    </div>
 </div>

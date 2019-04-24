@@ -5,6 +5,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -85,10 +86,14 @@
         </div>
     </nav>
     <h1>Eboard Dashboard</h1>
-    <a href="#!events">Events</a><br>
-    <a href="#!contactus">ContactUs</a><br>
-    <a href="#!recruitment">Recruitment</a>
+    <div class="container">
+    <div class="row">
+        <div class="col-4"><a class="card" href="#!events">Events</a></div>
+        <div class="col-4"><a class="card" href="#!contactus">Contact</a></div>
+        <div class="col-4"><a class="card" href="#!recruitment">Rush</a></div>
+    </div>
     <div ng-view></div>
+    </div>
   <!--<div class="container">
         <form onsubmit="eventSubmit()">
             <h2>Create One Time Upcoming Event</h2>

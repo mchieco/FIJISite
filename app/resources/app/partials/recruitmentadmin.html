@@ -1,3 +1,17 @@
 <div ng-controller="adminrecruitmentController">
-    <li ng-repeat="recruit in recruitment">{{recruit.firstName}}</li>
+    <div style="margin-top: 20px; margin-left: 35px;">
+    <div class="row" style="font-size: 18px">
+    <div class="col-3"><strong>First Name</strong></div>
+    <div class="col-3"><strong>Last Name</strong></div>
+    <div class="col-3"><strong>Email</strong></div>
+    <div class="col-3"><strong>Phone Number</strong></div>
+    </div>
+    <div ng-repeat="recruit in recruitment"class="row">
+    <div class="col-3">{{recruit.firstName}}</div>
+    <div class="col-3">{{recruit.lastName}}</div>
+    <div class="col-3">{{recruit.email}}</div>
+    <div class="col-3">{{recruit.phoneNumber}}</div>
+    <td><button class="btn btn-danger" ng-click="remove(recruit._id)">Remove</button></td>
+</div>
+</div>
 </div>
