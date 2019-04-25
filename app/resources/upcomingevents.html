@@ -17,7 +17,16 @@
 
     <link rel="stylesheet" href="./css/upcomingevents.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" />
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.9.0/css/xeditable.min.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.9.0/js/xeditable.min.js"></script>  
 </head>
 <header>
     <div class="header">
@@ -105,56 +114,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
     <!-- End Nav Bar -->
     <script>
-        $(function () {
-
-            // page is now ready, initialize the calendar...
-
-            $('#calendar').fullCalendar({
-                // put your options and callbacks here
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,basicWeek,basicDay'
-                },
-                defaultDate: '2018-11-27',
-                navLinks: true, // can click day/week names to navigate views
-                editable: true,
-                eventLimit: true, // allow "more" link when too many events
-                events: [
-                    {
-                        title: 'Executive Board Voting',
-                        start: '2018-11-26',
-                    },
-                    {
-                        title: 'Finals Week',
-                        start: '2018-12-10',
-                        end: '2018-12-15'
-                    },
-                    {
-                        title: 'Chapter',
-                        start: '2018-12-02T17:30:00'
-                    },
-                    {
-                        title: 'Thanksgiving Break',
-                        start: '2018-11-17',
-                        end: '2018-11-26'
-                    },
-                    {
-                        title: 'Chapter',
-                        start: '2018-11-11T17:30:00'
-                    },
-                    {
-                        title: 'IFC Meeting',
-                        start: '2018-11-28T21:15:00',
-                    },
-                ],
-                eventColor: '#663399',
-                eventTextColor: 'white'
-            });
-
-        });
-    </script>
-    <script>
         // Get the modal
         var modal = document.getElementById('id01');
 
@@ -173,5 +132,7 @@
     </footer>
 </body>
 <script type='text/javascript' src="./app/app.js"></script>
-<script type='text/javascript' src="./app/controllers/recruitmentcontroller.js"></script>
+<script type='text/javascript' src="./app/controllers/eventcontroller.js"></script>
+<script>
+    </script>
 </html>
