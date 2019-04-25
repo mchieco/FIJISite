@@ -24,8 +24,12 @@ fijiApp.controller('adminrecruitmentController', function($scope, $http) {
      * @param {Array<recruitment>} data 
      */
     $scope.deleteAll = function(data){
+      if(!confirm("Are you sure you want to remove all the data?\n\nThis cannot be undone.")){
+        return;
+      }
+      console.log(data);
       data.forEach(object=>{
-        $scope.remove(object._id,false);
+        $scope.remove(object._id,true);
       })
     };
     $scope.save = function(data, id) {
