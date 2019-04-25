@@ -1,17 +1,27 @@
 <div ng-controller="adminrecruitmentController">
-    <div style="margin-top: 20px; margin-left: 35px;">
-    <div class="row" style="font-size: 18px">
-    <div class="col-3"><strong>First Name</strong></div>
-    <div class="col-3"><strong>Last Name</strong></div>
-    <div class="col-3"><strong>Email</strong></div>
-    <div class="col-3"><strong>Phone Number</strong></div>
+    <div style="margin-top: 20px;">
+        <div class="table-responsive table-hover table-fixed">          
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Phone Number</th>
+                </tr>
+              </thead>
+              <tbody  ng-repeat="recruit in recruitment">
+                <tr>
+                  <td>{{recruit.firstName}}</td>
+                  <td>{{recruit.lastName}}</td>
+                  <td>{{recruit.email}}</td>
+                  <td>{{recruit.phoneNumber}}</td>
+                  <td style="width: 2%"><button class="btn btn-info" ng-click="remove(recruit._id)">Edit</button></td>
+                  <td style="width: 2%"><button class="btn btn-danger" ng-click="remove(recruit._id)">Remove</button></td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
     </div>
-    <div ng-repeat="recruit in recruitment"class="row">
-    <div class="col-3">{{recruit.firstName}}</div>
-    <div class="col-3">{{recruit.lastName}}</div>
-    <div class="col-3">{{recruit.email}}</div>
-    <div class="col-3">{{recruit.phoneNumber}}</div>
-    <td><button class="btn btn-danger" ng-click="remove(recruit._id)">Remove</button></td>
-</div>
-</div>
 </div>
