@@ -1,5 +1,7 @@
-var fijiApp = angular.module("fijiApp", ["ngRoute"]);
-
+var fijiApp = angular.module("fijiApp", ["ngRoute", "xeditable"]);
+fijiApp.run(['editableOptions', function(editableOptions) {
+    editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+  }]);
 fijiApp.config(function ($routeProvider) {
     $routeProvider
         .when("/events",  

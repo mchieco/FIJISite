@@ -12,11 +12,11 @@
               </thead>
               <tbody  ng-repeat="recruit in recruitment">
                 <tr>
-                  <td>{{recruit.firstName}}</td>
+                  <td><a href="#" editable-text="recruit.firstName"e-label="First Name">{{ recruit.firstName || "empty" }}</a></td>
                   <td>{{recruit.lastName}}</td>
                   <td>{{recruit.email}}</td>
                   <td>{{recruit.phoneNumber}}</td>
-                  <td style="width: 2%"><button class="btn btn-info" ng-click="remove(recruit._id)">Edit</button></td>
+                  <td style="width: 2%"><button class="btn btn-info" ng-click="update(recruit._id)">Save</button></td>
                   <td style="width: 2%"><button class="btn btn-danger" ng-click="remove(recruit._id)">Remove</button></td>
                 </tr>
               </tbody>

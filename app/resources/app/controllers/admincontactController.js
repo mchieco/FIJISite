@@ -11,4 +11,11 @@ fijiApp.controller('admincontactController', function($scope, $http) {
         window.location.reload();
       });
     };
+    $scope.update = function(id) {
+      console.log(id);
+      $http.put('/contactus?id=' + id)
+      .then(function(res){
+        window.location.reload();
+      });
+    };
 });

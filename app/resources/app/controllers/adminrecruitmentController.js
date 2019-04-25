@@ -11,4 +11,24 @@ fijiApp.controller('adminrecruitmentController', function($scope, $http) {
         window.location.reload();
       });
     };
+    $scope.update = function(id) {
+      console.log("coooooool");
+      $http({
+        method  : 'PUT',
+        url     : '/application?id=' + id,
+        data    : JSON.stringify({
+          firstName : $scope.fname,
+          lastName : $scope.lname,
+          email : $scope.email,
+          phoneNumber : $scope.phone,
+        }),
+        headers : { 'Content-Type': 'application/json' } 
+       })
+        .then(function(data) {
+            console.log(data);
+        })
+        .catch(function(error){
+          console.log(error);
+        })
+      };
 });
