@@ -1,23 +1,53 @@
 <div ng-controller="adminrecruitmentController">
     <div style="margin-top: 20px;">
-        <div class="table-responsive table-hover table-fixed">          
+        <div class="table-responsive table-hover table-fixed table-condensed">          
             <table class="table">
               <thead>
                 <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Email</th>
-                  <th>Phone Number</th>
+                  <th style="width:15%">First Name</th>
+                  <th style="width:15%">Last Name</th>
+                  <th style="width:30%">Email</th>
+                  <th style="width:15%">Phone Number</th>
+                  <th style="width:25%">Edit</th>
                 </tr>
               </thead>
-              <tbody  ng-repeat="recruit in recruitment">
-                <tr>
-                  <td><a href="#" editable-text="recruit.firstName"e-label="First Name">{{ recruit.firstName || "empty" }}</a></td>
-                  <td>{{recruit.lastName}}</td>
-                  <td>{{recruit.email}}</td>
-                  <td>{{recruit.phoneNumber}}</td>
-                  <td style="width: 2%"><button class="btn btn-info" ng-click="update(recruit._id)">Save</button></td>
-                  <td style="width: 2%"><button class="btn btn-danger" ng-click="remove(recruit._id)">Remove</button></td>
+              <tbody>
+                <tr ng-repeat="recruit in recruitment">
+                  <td>
+                    <span editable-text="recruit.firstName" e-name="firstName" e-form="rowform" e-required>
+                    {{ recruit.firstName || 'empty' }}
+                  </span>
+                </td>
+                  <td>
+                    <span editable-text="recruit.lastName" e-name="lastName" e-form="rowform" e-required>
+                    {{ recruit.lastName || 'empty' }}
+                  </span>
+                </td>
+                  <td>        
+                    <span editable-text="recruit.email" e-name="email" e-form="rowform" e-required>
+                    {{ recruit.email || 'empty' }}
+                  </span>
+                </td>
+                  <td>
+                    <span editable-text="recruit.phoneNumber" e-name="phoneNumber" e-form="rowform" e-required>
+                    {{ recruit.phoneNumber || 'empty' }}
+                  </span>
+                </td>
+                <td style="white-space: nowrap">
+                    <!-- form -->
+                    <form editable-form name="rowform" onbeforesave="save($data, recruit._id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == recruit">
+                      <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+                        save
+                      </button>
+                      <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+                        cancel
+                      </button>
+                    </form>
+                    <div class="buttons" ng-show="!rowform.$visible">
+                      <button type="button" class="btn btn-primary" ng-click="rowform.$show()">edit</button>
+                      <button type="button" class="btn btn-danger" ng-click="remove(recruit._id)">del</button>
+                    </div>  
+                  </td>
                 </tr>
               </tbody>
             </table>

@@ -31,6 +31,7 @@ module.exports = {
     update(req,res,next){
         console.log("Update...")
         //we check the req for an id
+        console.log(req.body);
         if(!req.query.hasOwnProperty("id")){
             return res.status(400).send("Missing ID Parameter.");
         }

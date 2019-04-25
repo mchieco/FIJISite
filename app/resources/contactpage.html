@@ -6,8 +6,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Quinnipiac FIJI - Contact</title>
@@ -18,20 +18,26 @@
     <link rel="stylesheet" href="./css/contactpage.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.9.0/css/xeditable.min.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.9.0/js/xeditable.min.js"></script>
 </head>
 <header>
     <div class="header">
         <a href="https://www.facebook.com/qufiji/" class="fa fa-facebook"></a>
         <a href="https://twitter.com/quinnipiacfiji?lang=en" class="fa fa-twitter"></a>
         <a href="https://www.instagram.com/quinnipiacfiji/?hl=en" class="fa fa-instagram"></a>
-        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; height: 50px; background-color: #663399; margin-left: 15px;"
-            id="login_btn">Eboard Login</button>
+        <button onclick="document.getElementById('id01').style.display='block'"
+            style="width:auto; height: 50px; background-color: #663399; margin-left: 15px;" id="login_btn">Eboard
+            Login</button>
     </div>
     <div id="id01" class="modal">
 
@@ -52,7 +58,8 @@
             </div>
 
             <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                    class="cancelbtn">Cancel</button>
                 <span class="psw">Forgot <a href="#">password?</a></span>
             </div>
         </form>
@@ -76,8 +83,8 @@
         <a class="navbar-brand" href="index.html">
             <img src="./images/Phi-Gamma-Delta-BCL-Logo---WEBSITE.png" width="200" height="50" alt="">
         </a>
-        <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -113,20 +120,29 @@
     <div style="padding-top: 15px">
         <h1>Contact Us</h1>
         <div class="container">
-            <form name="contactForm" id="contactForm" ng-submit="submitForm()" ng-controller="contactController" novalidate>
+            <form name="contactForm" id="contactForm" ng-submit="submitForm()" ng-controller="contactController"
+                novalidate>
 
-                <span style="color:red" ng-show="contactForm.fname.$error.required && !contactForm.fname.$pristine">First Name is required.</span>
-                <input ng-model="fname"type="text" id="fname" name="fname" placeholder="First Name" required>
+                <span style="color:red"
+                    ng-show="contactForm.fname.$error.required && !contactForm.fname.$pristine">First Name is
+                    required.</span>
+                <input ng-model="fname" type="text" id="fname" name="fname" placeholder="First Name" required>
 
-                <span style="color:red" ng-show="contactForm.lname.$error.required && !contactForm.lname.$pristine">Last Name is required.</span>
-                <input ng-model="lname"type="text" id="lname" name="lname" placeholder="Last Name" required>
+                <span style="color:red" ng-show="contactForm.lname.$error.required && !contactForm.lname.$pristine">Last
+                    Name is required.</span>
+                <input ng-model="lname" type="text" id="lname" name="lname" placeholder="Last Name" required>
 
-                <span style="color:red" ng-show="contactForm.email.$error.required && !contactForm.email.$pristine">Email is required.</span>
+                <span style="color:red"
+                    ng-show="contactForm.email.$error.required && !contactForm.email.$pristine">Email is
+                    required.</span>
                 <span style="color:red" ng-show="contactForm.email.$error.email">Invalid email address.</span>
                 <input ng-model="email" type="email" id="email" name="email" placeholder="Email" required>
 
-                <span style="color:red" ng-show="contactForm.subject.$error.required && !contactForm.subject.$pristine">Subject is Required.</span>
-                <textarea ng-model="subject" id="subject" name="subject" placeholder="Write something.." style="height:200px" required></textarea>
+                <span style="color:red"
+                    ng-show="contactForm.subject.$error.required && !contactForm.subject.$pristine">Subject is
+                    Required.</span>
+                <textarea ng-model="subject" id="subject" name="subject" placeholder="Write something.."
+                    style="height:200px" required></textarea>
 
                 <input style="background-color: #663399" type="submit" value="Submit">
 
@@ -135,7 +151,8 @@
     </div>
     <footer class="footer">
         <div class="container2">
-            <span class="text-muted">© 2018 Copyright: Quinnipiac FIJI - <a id="footer" href="https://www.phigam.org">Phi
+            <span class="text-muted">© 2018 Copyright: Quinnipiac FIJI - <a id="footer"
+                    href="https://www.phigam.org">Phi
                     Gamma Delta Headquarters</a> - Created and Maintained by Brothers </span>
         </div>
     </footer>

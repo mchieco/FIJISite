@@ -11,11 +11,9 @@ fijiApp.controller('admincontactController', function($scope, $http) {
         window.location.reload();
       });
     };
-    $scope.update = function(id) {
-      console.log(id);
-      $http.put('/contactus?id=' + id)
-      .then(function(res){
-        window.location.reload();
-      });
+    $scope.save = function(data, id) {
+      //$scope.user not updated yet
+      angular.extend(data, {id: id});
+      return $http.put('/contactus?id=' + id, data);
     };
 });
