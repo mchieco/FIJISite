@@ -245,7 +245,7 @@ h3 {
     object-fit: cover;
 }
 .card{
-    height: 525px;
+     min-height: 525px;
     padding-bottom: 30px;
 }
 .xxx{
