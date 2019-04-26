@@ -1,0 +1,50 @@
+<div class="row">
+<div class="col-12 col-md-4 mt-2"><a class="card" href="#!events/allevents">All Events</a></div>
+<div class="col-12 col-md-4 mt-2"><a class="card" href="#!events/createvents">Create Events</a></div>
+</div>
+<form name="shortEventForm" ng-controller="admincreateeventController" ng-submit="submitshortForm()" novalidate>
+    <h2 style="margin-top: 20px">Create One Time Upcoming Event</h2>
+    <div class="row backgrey">
+        <div class="col">
+            <label for="name"><strong>Event Name</strong></label>
+            <input ng-model="name" type="text" id="name" name="name" placeholder="Event Name" required>
+            <span style="color:red" ng-show="shortEventForm.name.$error.required && !shortEventForm.name.$pristine">Event Name is
+                required.</span>
+        </div>
+        <div class="col">
+            <label for="date"><strong>Date</strong></label>
+            <input ng-model="date" type="date" id="date" name="date" placeholder="Enter Date" required>
+            <span style="color:red" ng-show="shortEventForm.date.$error.required && !shortEventForm.date.$pristine">Date is
+                required.</span>
+        </div>
+        <div class="col">
+            <label for="time"><strong>Time of Event</strong></label>
+            <input ng-model="time" type="time" id="time" name="time" placeholder="Enter Time" required>
+            <span style="color:red" ng-show="shortEventForm.time.$error.required && !shortEventForm.time.$pristine">Time is
+                required.</span>
+            <button style="margin-bottom: 20px" ng-disabled="shortEventForm.$invalid" class="btn btn-primary purple-background"
+                type="submit" value="submit">Create
+                Event</button>
+        </div>
+    </div>
+</form>
+<form onsubmit="eventSubmit()">
+    <h2 style="padding-top:20px;">Create Long Term Upcoming Event</h2>
+    <div class="row backgrey">
+        <div class="col">
+            <label for="fname"><strong>Event Name</strong></label>
+            <input type="text" id="name" name="name" placeholder="Event Name" required>
+        </div>
+        <div class="col">
+            <label for="date"><strong>Starting Date</strong></label>
+            <input type="date" id="date1" name="date1" placeholder="Enter Date" required>
+        </div>
+        <div class="col">
+            <label for="time"><strong>Ending Date</strong></label>
+            <input type="date" id="date2" name="date2" placeholder="Enter Date" required>
+            <button style="margin-bottom: 20px" class="btn btn-primary purple-background"
+                type="submit" value="submit">Create
+                Event</button>
+        </div>
+    </div>
+</form>

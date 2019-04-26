@@ -144,7 +144,7 @@
                 <textarea ng-model="subject" id="subject" name="subject" placeholder="Write something.."
                     style="height:200px" required></textarea>
 
-                <input style="background-color: #663399" type="submit" value="Submit">
+                <input style="background-color: #663399" ng-disabled="recForm.$invalid" type="submit" value="Submit">
 
             </form>
         </div>

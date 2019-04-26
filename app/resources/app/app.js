@@ -4,10 +4,15 @@ fijiApp.run(['editableOptions', function(editableOptions) {
   }]);
 fijiApp.config(function ($routeProvider) {
     $routeProvider
-        .when("/events",  
+        .when("/events/allevents",  
         { 
-            templateUrl: 'app/partials/eventadmin.html',
-            controller: "admineventController"
+            templateUrl: 'app/partials/eventalladmin.html',
+            controller: "admingeteventController"
+        })
+        .when("/events/createvents",  
+        { 
+            templateUrl: 'app/partials/eventcreateadmin.html',
+            controller: "admincreateeventController"
         })
         .when("/contactus",  
         { 
@@ -19,6 +24,6 @@ fijiApp.config(function ($routeProvider) {
             templateUrl: 'app/partials/recruitmentadmin.html',
             controller: "adminrecruitmentController"
         })
-        .when("/",  { redirectTo: "/events" })
+        .when("/",  { redirectTo: "/events/allevents" })
         .otherwise({ redirectTo: "/404_page" });
 });

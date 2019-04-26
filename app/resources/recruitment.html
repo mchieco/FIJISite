@@ -151,7 +151,7 @@
             <span style="color:red" ng-show="recForm.email.$error.email">Invalid email address.</span>
             <input ng-model="email" type="email" id="email" name="email" placeholder="Email" required>
 
-            <input style="background-color: #663399" type="submit" value="Submit">
+            <input style="background-color: #663399" ng-disabled="recForm.$invalid" type="submit" value="Submit">
 
         </form>
     </div>
