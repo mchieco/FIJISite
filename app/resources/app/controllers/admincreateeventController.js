@@ -1,17 +1,19 @@
 fijiApp.controller('admincreateeventController', function ($scope, $http) {
     $scope.submitshortForm = function () {
+        console.log($scope.date);
+        console.log($scope.time);
         $http({
             method: 'POST',
             url: '/event',
             data: {
                 name: $scope.name,
-                startDate: $scope.date + $scope.time,
-                endDate: $scope.date + $scope.time
+                startDate: $scope.date,
+                endDate: $scope.time
             },
             headers: { 'Content-Type': 'application/json' }
         })
             .then(function (data) {
-                clearField();
+                clearField1();
             });
     };
     $scope.submitlongForm = function () {
@@ -19,17 +21,20 @@ fijiApp.controller('admincreateeventController', function ($scope, $http) {
             method: 'POST',
             url: '/event',
             data: {
-                name: $scope.fname,
-                startDate: $scope.lname,
-                endDate: $scope.email
+                name: $scope.name,
+                startDate: $scope.date1,
+                endDate: $scope.date2
             },
             headers: { 'Content-Type': 'application/json' }
         })
             .then(function (data) {
-                clearField();
+                clearField2();
             });
     };
 });
-function clearField() {
-    document.getElementById("recForm").reset();
+function clearField1() {
+    document.getElementById("shortEventForm").reset();
+}
+function clearField2() {
+    document.getElementById("longEventForm").reset();
 }

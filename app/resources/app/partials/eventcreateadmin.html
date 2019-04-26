@@ -2,7 +2,7 @@
 <div class="col-12 col-md-4 mt-2"><a class="card" href="#!events/allevents">All Events</a></div>
 <div class="col-12 col-md-4 mt-2"><a class="card" href="#!events/createvents">Create Events</a></div>
 </div>
-<form name="shortEventForm" ng-controller="admincreateeventController" ng-submit="submitshortForm()" novalidate>
+<form name="shortEventForm" id="shortEventForm" ng-controller="admincreateeventController" ng-submit="submitshortForm()" novalidate>
     <h2 style="margin-top: 20px">Create One Time Upcoming Event</h2>
     <div class="row backgrey">
         <div class="col">
@@ -28,21 +28,27 @@
         </div>
     </div>
 </form>
-<form onsubmit="eventSubmit()">
+<form ng-controller="admincreateeventController"name="longEventForm"id="longEventForm"ng-submit="submitlongForm()" novalidate>
     <h2 style="padding-top:20px;">Create Long Term Upcoming Event</h2>
     <div class="row backgrey">
         <div class="col">
-            <label for="fname"><strong>Event Name</strong></label>
-            <input type="text" id="name" name="name" placeholder="Event Name" required>
+            <label for="name"><strong>Event Name</strong></label>
+            <input ng-model="name" type="text" id="name" name="name" placeholder="Event Name" required>
+            <span style="color:red" ng-show="longEventForm.name.$error.required && !longEventForm.name.$pristine">Event Name is
+                required.</span>
         </div>
         <div class="col">
-            <label for="date"><strong>Starting Date</strong></label>
-            <input type="date" id="date1" name="date1" placeholder="Enter Date" required>
+            <label for="date1"><strong>Starting Date</strong></label>
+            <input ng-model="date1"type="date" id="date1" name="date1" placeholder="Enter Date" required>
+            <span style="color:red" ng-show="longEventForm.date1.$error.required && !longEventForm.date1.$pristine">Start Date is
+                required.</span>
         </div>
         <div class="col">
-            <label for="time"><strong>Ending Date</strong></label>
-            <input type="date" id="date2" name="date2" placeholder="Enter Date" required>
-            <button style="margin-bottom: 20px" class="btn btn-primary purple-background"
+            <label for="date2"><strong>Ending Date</strong></label>
+            <input ng-model="date2"type="date" id="date2" name="date2" placeholder="Enter Date" required>
+            <span style="color:red" ng-show="longEventForm.date2.$error.required && !longEventForm.date2.$pristine">End Date is
+                required.</span>
+            <button ng-disabled="longEventForm.$invalid" style="margin-bottom: 20px" class="btn btn-primary purple-background"
                 type="submit" value="submit">Create
                 Event</button>
         </div>
