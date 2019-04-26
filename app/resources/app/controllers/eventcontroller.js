@@ -2,35 +2,39 @@ fijiApp.controller('eventcontroller', function ($scope, $http) {
   $scope.user = {};
   $scope.data = {};
   $scope.data.events = [
-    {
-      title: 'Executive Board Voting',
-      start: '2018-11-26',
-    },
-    {
+    // {end: "2019-04-19T21:56:02.791Z", start: "2019-04-18T21:56:02.791Z", title: "Event!!!"}
+  ];
+  // render($scope.data.events);
+
+  $scope.refreshEvents = function(){
+    $http({
+      method: 'GET',
+      url: '/event',
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(data=>{
+      console.log(data);
+      /*
+         {
       title: 'Finals Week',
       start: '2018-12-10',
       end: '2018-12-15'
     },
-    {
-      title: 'Chapter',
-      start: '2018-12-02T17:30:00'
-    },
-    {
-      title: 'Thanksgiving Break',
-      start: '2018-11-17',
-      end: '2018-11-26'
-    },
-    {
-      title: 'Chapter',
-      start: '2018-11-11T17:30:00'
-    },
-    {
-      title: 'IFC Meeting',
-      start: '2018-11-28T21:15:00',
-    },
-  ];
-
-  render($scope.data.events);
+    endDate,
+    startDate,
+    name
+      */
+     let events = data.data.map(object=>{
+      return {end: object.endDate, start: object.startDate, title: object.name};
+     })
+     console.log("Clean",events);
+     render(events);
+    })
+    .catch(err=>{
+      console.error(err);
+    })
+  }
+  $scope.refreshEvents();
 });
 function render(inputted_events) {
   console.log("Called",inputted_events)
@@ -45,7 +49,7 @@ function render(inputted_events) {
         center: 'title',
         right: 'month,basicWeek,basicDay'
       },
-      defaultDate: '2018-11-27',
+      defaultDate: new Date(),
       navLinks: true, // can click day/week names to navigate views
       editable: true,
       eventLimit: true, // allow "more" link when too many events
