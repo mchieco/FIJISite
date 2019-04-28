@@ -51,7 +51,6 @@ function render(inputted_events) {
       },
       defaultDate: new Date(),
       navLinks: true, // can click day/week names to navigate views
-      editable: true,
       eventLimit: true, // allow "more" link when too many events
       events: inputted_events,
       eventColor: '#663399',
