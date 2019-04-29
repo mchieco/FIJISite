@@ -37,16 +37,15 @@
             id="login_btn">Eboard Login</button>
     </div>
     <div id="id01" class="modal">
-
-        <form class="modal-content animate" action="eboardadmin.html" id="my_form">
+        <form class="modal-content animate" id="my_form" ng-controller="loginController" ng-submit="submitForm()">
 
 
             <div class="container">
                 <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <input type="text" placeholder="Enter Username" name="uname"  ng-model="username" required>
 
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <input type="password" placeholder="Enter Password" name="psw"  ng-model="password" required>
 
                 <button style="background-color: #663399;" type="submit">Login</button>
                 <label>
@@ -60,6 +59,17 @@
             </div>
         </form>
     </div>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </header>
 
 <body ng-controller="eventcontroller">
@@ -133,6 +143,5 @@
 </body>
 <script type='text/javascript' src="./app/app.js"></script>
 <script type='text/javascript' src="./app/controllers/eventcontroller.js"></script>
-<script>
-    </script>
+<script type='text/javascript' src="./app/controllers/loginController.js"></script>
 </html>
