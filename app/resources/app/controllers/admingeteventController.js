@@ -11,4 +11,9 @@ fijiApp.controller('admingeteventController', function($scope, $http) {
           window.location.reload();
       });
     };
+    $scope.save = function(data, id) {
+      //$scope.user not updated yet
+      angular.extend(data, {id: id});
+      return $http.put('/event?id=' + id, data);
+    };
 });
