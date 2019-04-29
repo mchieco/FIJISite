@@ -23,12 +23,12 @@
             </td>
               <td>
                 <span editable-datetime="event.startDate" e-name="startDate" e-form="rowform" e-required>
-                {{ event.startDate || 'empty' }}
+                {{ event.startDate | date: 'medium' }}
               </span>
             </td>
               <td>        
                 <span editable-datetime="event.endDate" e-name="endDate" e-form="rowform" e-required>
-                {{ event.endDate || 'empty' }}
+                {{ event.endDate | date: 'medium' }}
               </span>
             <td style="white-space: nowrap">
                 <!-- form -->

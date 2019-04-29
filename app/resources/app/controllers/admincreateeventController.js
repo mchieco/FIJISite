@@ -1,13 +1,13 @@
 fijiApp.controller('admincreateeventController', function ($scope, $http) {
     $scope.submitshortForm = function () {
         console.log($scope.date);
-        let year = $scope.date.getUTCFullYear();
-        let month = $scope.date.getUTCMonth();
-        let day = $scope.date.getUTCDate();
+        let year = $scope.date.getFullYear();
+        let month = $scope.date.getMonth();
+        let day = $scope.date.getDate();
         console.log($scope.time);
-        let hour = $scope.time.getUTCHours();
+        let hour = $scope.time.getHours();
         console.log(hour)
-        let minute = $scope.time.getUTCMinutes();
+        let minute = $scope.time.getMinutes();
         let date = new Date(year, month, day, hour, minute, 0, 0);
         $http({
             method: 'POST',
