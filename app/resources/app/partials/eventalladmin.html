@@ -8,43 +8,18 @@
         <table class="table">
           <thead>
             <tr>
-              <th style="width:15%">Event Name</th>
+              <th style="width:25%">Event Name</th>
               <th style="width:30%">Start Date</th>
               <th style="width:30%">End Date</th>
-              <th style="width:25%">Edit</th>
+              <th style="width:15%">Edit</th>
             </tr>
           </thead>
           <tbody>
             <tr ng-repeat="event in events">
-              <td>
-                <span editable-text="event.name" e-name="name" e-form="rowform" e-required>
-                {{ event.name || 'empty' }}
-              </span>
-            </td>
-              <td>
-                <span editable-datetime="event.startDate" e-name="startDate" e-form="rowform" e-required>
-                {{ event.startDate | date: 'medium' }}
-              </span>
-            </td>
-              <td>        
-                <span editable-datetime="event.endDate" e-name="endDate" e-form="rowform" e-required>
-                {{ event.endDate | date: 'medium' }}
-              </span>
-            <td style="white-space: nowrap">
-                <!-- form -->
-                <form editable-form name="rowform" onbeforesave="save($data, event._id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == event">
-                  <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
-                    save
-                  </button>
-                  <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
-                    cancel
-                  </button>
-                </form>
-                <div class="buttons" ng-show="!rowform.$visible">
-                  <button type="button" class="btn btn-primary" ng-click="rowform.$show()">Edit</button>
-                  <button type="button" class="btn btn-danger" ng-click="remove(event._id)">Del</button>
-                </div>  
-              </td>
+              <td>{{event.name}}</td>
+              <td>{{event.startDate | date: 'medium'}}</td>
+              <td>{{event.endDate  | date:'medium'}}</td>
+              <td style="width: 2%"><button class="btn btn-danger" ng-click="remove(event._id)">Delete</button></td>
             </tr>
           </tbody>
         </table>
