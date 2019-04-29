@@ -24,7 +24,7 @@ module.exports = {
         })
         .catch(err=>{
             console.log(err);
-            return res.status(500).send(err.message);
+            return res.status(400).send(err.message);
         })
     },
     logout(req,res,next){
@@ -36,10 +36,10 @@ module.exports = {
             return auth.logout(token.userid)
         })
         .then(()=>{
-            res.send("Done.")
+            res.redirect("/")
         })
         .catch(err=>{
-            res.status(500).send(err.message);
+            res.redirect("/")
         })
     },
     create(req,res,next){

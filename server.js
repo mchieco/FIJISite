@@ -27,14 +27,14 @@ app.use((req, res, next) => {
         // yes, cookie was already present 
         // console.log('cookie exists', cookie);
         Auth.decodeToken(req.cookies[CONSTANTS.cookieName])
-        .then(token=>{
-            // console.log("FOUND",token);
-            next(); // <-- important!
-        })
-        .catch(err=>{
-            console.log(err);
-            next();
-        })
+            .then(token => {
+                // console.log("FOUND",token);
+                next(); // <-- important!
+            })
+            .catch(err => {
+                console.log(err);
+                next();
+            })
     }
 })
 
@@ -51,10 +51,19 @@ mongoose.connect(DBconfig.url, { useNewUrlParser: true })
 //Connect to the router; 
 const router = require("./app/routes/router");
 app.use("/", router); //before sending requests to static files, we first check if they are valid API requests. 
+app.get("/eboardadmin.html", (req, res, next) => {
+    //we don't have to send a file. We can just send text if we wish.
+    let file = path.join(__dirname, "app", "private_resources", "eboardadmin.html") //__dirname is a constant that is established, automatically provides the path to the current folder <THIS> Js file is in. 
+
+    Auth.customCheckAdmin(req)
+    .then(()=>{
+        res.sendFile(file)
+    })
+    .catch(err=>{
+        res.redirect("/index.html");
+    })
+});
 app.use(express.static(path.join(__dirname, "app", "resources")));
-
-
-
 
 console.log("Server started on port " + port)
 app.listen(port)

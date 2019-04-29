@@ -6,38 +6,38 @@ fijiApp.controller('eventcontroller', function ($scope, $http) {
   ];
   // render($scope.data.events);
 
-  $scope.refreshEvents = function(){
+  $scope.refreshEvents = function () {
     $http({
       method: 'GET',
       url: '/event',
       headers: { 'Content-Type': 'application/json' }
     })
-    .then(data=>{
-      console.log(data);
-      /*
-         {
-      title: 'Finals Week',
-      start: '2018-12-10',
-      end: '2018-12-15'
-    },
-    endDate,
-    startDate,
-    name
-      */
-     let events = data.data.map(object=>{
-      return {end: object.endDate, start: object.startDate, title: object.name};
-     })
-     console.log("Clean",events);
-     render(events);
-    })
-    .catch(err=>{
-      console.error(err);
-    })
+      .then(data => {
+        console.log(data);
+        /*
+           {
+        title: 'Finals Week',
+        start: '2018-12-10',
+        end: '2018-12-15'
+      },
+      endDate,
+      startDate,
+      name
+        */
+        let events = data.data.map(object => {
+          return { end: new Date(new Date(object.endDate).getTimezoneOffset() + new Date(object.endDate).valueOf()), start: new Date(new Date(object.startDate).getTimezoneOffset() + new Date(object.startDate).valueOf()), title: object.name };
+        })
+        console.log("Clean", events);
+        render(events);
+      })
+      .catch(err => {
+        console.error(err);
+      })
   }
   $scope.refreshEvents();
 });
 function render(inputted_events) {
-  console.log("Called",inputted_events)
+  console.log("Called", inputted_events)
   $(function () {
 
     // page is now ready, initialize the calendar...

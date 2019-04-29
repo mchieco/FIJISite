@@ -30,6 +30,7 @@ adminSchema.methods.generateHash = function(password) {
 
 // checking if password is valid
 adminSchema.methods.validPassword = function(password) {
+    console.log("Running valid password check");
     return new Promise((resolve, reject)=>{
         bcrypt.compare(password, this.password, function(err, res) {
             if(err || res==false){
