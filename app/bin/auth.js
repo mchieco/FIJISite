@@ -98,7 +98,7 @@ module.exports = {
     login(id, username, password) {
         return new Promise((resolve, reject) => {
             let founduser = null;
-            console.log("[Auth]", "Finding", username,password)
+            console.log("[Auth]", "Finding", username)
             Admin.find({"username":username}).exec()
                 .then((users) => {
                     console.log(users);
@@ -111,7 +111,6 @@ module.exports = {
                     return user.validPassword(password)
                 })
                 .then(valid => {
-                    console.log("daddy",valid)
                     //password if valid at this point. 
                     AuthorizedIds[id] = { Date: new Date(), user: founduser };
                     resolve(founduser)
