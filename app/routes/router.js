@@ -41,6 +41,11 @@ router.route("/auth")
 router.put("/auth/logout",admin_controller.logout);
 router.get("/auth/logout",admin_controller.logout);
 
+router.route("/eboardadmins")
+.get(admin_controller.getList)
+.delete(admin_controller.removeAdmin);
+
+
 router.route("/application")
 .all((req,res,next)=>{
     console.log("[Application]","Got event.");

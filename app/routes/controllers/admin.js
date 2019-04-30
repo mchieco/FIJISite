@@ -63,6 +63,41 @@ module.exports = {
             console.log(err);
             res.status(400).send(err.message)
         })
+    },
+    getList(req,res,next){
+        Admin.find({}).exec()
+        .then(admins=>{
+            let safeList = admins.map(admin=>{
+                return {username:admin.username,updatedAt:admin.updatedAt,_id:admin._id,createdAt:admin.createdAt};
+            })
+            res.status(200).json(safeList);
+        })
+        .catch(err=>{
+            console.log(err);
+            res.status(500).send("Could not get admins");
+        })
+    },
+    removeAdmin(req,res,next){
+        if(!req.query.hasOwnProperty("id")){
+            return res.status(400).send("Missing ID Parameter.");
+        }
+        let id = req.query.id;
+        let current_admin = null;
+        Admin.find({"_id":id}).exec()
+        .then(admins=>{
+            if(admins == undefined || admin.length == 0){
+                throw 'Cannot remove admin';
+            }
+            current_admin = admins.pop();
+            return Admin.find({}).exec()
+        })
+        .then(admins=>{
+            //check to make sure this isn't the youngest admin. 
+            let young = new Date()
+        })
+        .catch(err=>{
+            res.status(500).send(err.message);
+        })
     }
 }
 function checkCookie(req){
