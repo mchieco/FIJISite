@@ -1,7 +1,7 @@
 <!--Created by Matt Chieco and Evan Rigsby SER 310-->
 <!doctype html>
 
-<html lang="en">
+<html lang="en" ng-app="fijiApp">
 
 <head>
     <meta charset="utf-8">
@@ -16,12 +16,16 @@
     <meta name="author" content="Mattc">
 
     <link rel="stylesheet" href="./css/philanthropy.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.9.0/css/xeditable.min.css"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.9.0/js/xeditable.min.js"></script>
 </head>
 <header>
     <div class="header">
@@ -32,16 +36,15 @@
             id="login_btn">Eboard Login</button>
     </div>
     <div id="id01" class="modal">
-
-        <form class="modal-content animate" action="eboardadmin.html" id="my_form">
+        <form class="modal-content animate" id="my_form" ng-controller="loginController" ng-submit="submitForm()">
 
 
             <div class="container">
                 <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <input type="text" placeholder="Enter Username" name="uname"  ng-model="username" required>
 
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <input type="password" placeholder="Enter Password" name="psw"  ng-model="password" required>
 
                 <button style="background-color: #663399;" type="submit">Login</button>
                 <label>
@@ -163,5 +166,6 @@
         </div>
     </footer>
 </body>
-
+<script type='text/javascript' src="./app/app.js"></script>
+<script type='text/javascript' src="./app/controllers/loginController.js"></script>
 </html>
