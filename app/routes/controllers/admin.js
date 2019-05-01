@@ -69,6 +69,8 @@ module.exports = {
         .then(admins=>{
             let safeList = admins.map(admin=>{
                 return {username:admin.username,updatedAt:admin.updatedAt,_id:admin._id,createdAt:admin.createdAt};
+            }).sort((a,b)=>{
+                return (new Date(a.createdAt).valueOf() - new Date(b.createdAt).valueOf())
             })
             res.status(200).json(safeList);
         })
@@ -85,7 +87,7 @@ module.exports = {
         let current_admin = null;
         Admin.find({"_id":id}).exec()
         .then(admins=>{
-            if(admins == undefined || admin.length == 0){
+            if(admins == undefined || admins.length == 0){
                 throw 'Cannot remove admin';
             }
             current_admin = admins.pop();
@@ -93,9 +95,29 @@ module.exports = {
         })
         .then(admins=>{
             //check to make sure this isn't the youngest admin. 
-            let young = new Date()
+            let young = 0;
+            let y_admin = null;
+            admins.forEach(admin=>{
+                if(new Date(admin.createdAt).valueOf() >= young){
+                    young = new Date(admin.createdAt).valueOf();
+                    y_admin = admin;
+                }
+            })
+            if(y_admin == null || y_admin._id == req.query.id || current_admin.locked == true){
+                return res.status(400).end();
+            }else{
+                Admin.deleteOne({"_id":req.query.id}).exec()
+                .then(()=>{
+                    res.end();
+                })
+                .catch(err=>{
+                    console.log(err);
+                    res.status(500).end();
+                })
+            }
         })
         .catch(err=>{
+            console.log(err);
             res.status(500).send(err.message);
         })
     }

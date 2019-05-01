@@ -10,7 +10,12 @@ var adminSchema = new Schema({
 	password : {
 			type : String,
 			required : true
-	}
+    },
+    locked : {
+        type : Boolean,
+        required : true,
+        default: false
+}
 },
 	{ timestamps : true 
 			

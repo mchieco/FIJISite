@@ -35,15 +35,15 @@ router.route("/auth")
     console.log("[Auth]","Got event.");
     next();
 })
-.post(admin_controller.create)
+.post(checkAdmin,admin_controller.create)
 .put(admin_controller.login);
 
 router.put("/auth/logout",admin_controller.logout);
 router.get("/auth/logout",admin_controller.logout);
 
 router.route("/eboardadmins")
-.get(admin_controller.getList)
-.delete(admin_controller.removeAdmin);
+.get(checkAdmin,admin_controller.getList) //Admin
+.delete(checkAdmin,admin_controller.removeAdmin); //Admin
 
 
 router.route("/application")
