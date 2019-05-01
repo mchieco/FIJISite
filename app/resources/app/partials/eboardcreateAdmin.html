@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-12 col-sm-6 col-lg-2 mt-2 eventbutton"><a class="card" href="#!admin/alladmins">All Admins</a></div>
+    <div class="col-12 col-sm-6 col-lg-2 mt-2 eventbutton"><a class="card" href="#!admin/createadmin">Create Admin</a>
+    </div>
+</div>
+
+<form name="createForm" id="createForm" ng-controller="admincreateController" ng-submit="submitcreateForm()" novalidate>
+    <h2 style="margin-top: 20px">Create Admin</h2>
+    <div class="row backgrey">
+        <div class="col">
+            <label for="name"><strong>Username</strong></label>
+            <input ng-pattern="/^\S+$/" ng-model="name" type="text" id="name" name="name" placeholder="Username" required>
+            <span style="color:red" ng-show="createForm.name.$error.required && !createForm.name.$pristine">Username
+                is
+                required.</span>
+            <span style="color:red" ng-show="createForm.name.$error.pattern">No spaces allowed.</span>
+        </div>
+        <div class="col">
+            <label for="pwd"><strong>Password</strong></label>
+            <input ng-pattern="/^((?!.*[\s])(?=.*[A-Z])(?=.*\d).{8,15})$/" ng-model="pwd" type="text" id="pwd" name="pwd" placeholder="Password" required>
+            <span style="color:red" ng-show="createForm.pwd.$error.required && !createForm.pwd.$pristine">Password
+                is
+                required.</span>
+            <span style="color:red" ng-show="createForm.pwd.$error.pattern">Password
+                must have 1 uppercase, 1 number and be between 8-15 characters.</span>
+            <button style="margin-bottom: 20px" ng-disabled="createForm.$invalid"
+                class="btn btn-primary purple-background" type="submit" value="submit">Create
+                User</button>
+        </div>
+    </div>
+</form>

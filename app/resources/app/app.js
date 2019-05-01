@@ -24,10 +24,15 @@ fijiApp.config(function ($routeProvider) {
             templateUrl: 'app/partials/recruitmentadmin.html',
             controller: "adminrecruitmentController"
         })
-        .when("/eboardadmins",  
+        .when("/admin/alladmins",  
         { 
             templateUrl: 'app/partials/eboardAdmins.html',
             controller: "adminEboardController"
+        })
+        .when("/admin/createadmin",  
+        { 
+            templateUrl: 'app/partials/eboardcreateAdmin.html',
+            controller: "admincreateController"
         })
         .when("/",  { redirectTo: "/events/allevents" })
         .otherwise({ redirectTo: "/404_page" });

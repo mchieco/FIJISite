@@ -1,4 +1,9 @@
 <div ng-controller="adminEboardController">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-lg-2 mt-2 eventbutton"><a class="card" href="#!admin/alladmins">All Admins</a></div>
+    <div class="col-12 col-sm-6 col-lg-2 mt-2 eventbutton"><a class="card" href="#!admin/createadmin">Create Admin</a>
+    </div>
+  </div>
   <p class="mt-3">The most recent admin account cannot be deleted. </p>
   <div style="margin-top: 20px;">
     <div class="table-responsive table-hover table-fixed table-condensed">
@@ -13,20 +18,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="admin in admins">
-            <td>
-              <span editable-text="recruit.firstName" e-name="firstName" e-form="rowform" e-required>
-                {{ admin.username || 'empty' }}
-              </span>
-            </td>
-            <td>
-              <span editable-text="recruit.firstName" e-name="firstName" e-form="rowform" e-required>
-                {{ admin.updatedAt|| 'empty' }}
-              </span>
-            </td>
-            <td>
-              <button class="btn btn-danger" ng-click="remove(admin._id)">Delete</button>
-            </td>
+          <tr ng-repeat="adminer in admin">
+            <td>{{adminer.username}}</td>
+            <td>{{adminer.createdAt | date: 'medium'}}</td>
+            <td style="width: 2%"><button class="btn btn-danger" ng-click="remove(adminer._id)">Delete</button></td>
           </tr>
         </tbody>
       </table>
