@@ -5,6 +5,23 @@ fijiApp.controller('adminrecruitmentController', function($scope, $http) {
     $scope.recruitment = result.data;
     console.log($scope.recruitment);
     });
+
+    $scope.downloadXLS = function() {
+      var fields = $scope.recruitment.map((object)=>{
+        return {"First Name":object.firstName, "Last Name":object.lastName, "Email":object.email, "Phone Number":object.phoneNumber} //etc etc..
+    })
+      var ws = XLSX.utils.json_to_sheet(fields);
+      var wb = XLSX.utils.book_new();
+      var wscols = [
+        {wpx:100},
+        {wpx:100},
+        {wpx:200},
+        {wpx:100}
+    ];
+      ws['!cols'] = wscols;
+      XLSX.utils.book_append_sheet(wb, ws, "Recruitment");
+      XLSX.writeFile(wb, "fijiRecruitment.xlsx");
+    }
     $scope.remove = function(id,reload=true) {
       console.log(id);
       $http.delete('/application?id=' + id)
