@@ -14,13 +14,13 @@
         </div>
         <div class="col">
             <label for="date"><strong>Date</strong></label>
-            <input ng-model="date" type="date" id="date" name="date" placeholder="Enter Date" required>
+            <input style="background: #ffffff"ng-model="date" type="date" id="date" name="date" placeholder="Enter Date" required>
             <span style="color:red" ng-show="shortEventForm.date.$error.required && !shortEventForm.date.$pristine">Date is
                 required.</span>
         </div>
         <div class="col">
             <label for="time"><strong>Time of Event</strong></label>
-            <input ng-model="time" type="time" id="time" name="time" placeholder="Enter Time" required>
+            <input style="background: #ffffff" ng-model="time" type="time" id="time" name="time" placeholder="Enter Time" required>
             <span style="color:red" ng-show="shortEventForm.time.$error.required && !shortEventForm.time.$pristine">Time is
                 required.</span>
             <button style="margin-bottom: 20px" ng-disabled="shortEventForm.$invalid" class="btn btn-primary purple-background"
@@ -34,19 +34,19 @@
     <div class="row backgrey">
         <div class="col">
             <label for="name"><strong>Event Name</strong></label>
-            <input ng-model="name" type="text" id="name" name="name" placeholder="Event Name" required>
+            <input style="background: #ffffff" ng-model="name" type="text" id="name" name="name" placeholder="Event Name" required>
             <span style="color:red" ng-show="longEventForm.name.$error.required && !longEventForm.name.$pristine">Event Name is
                 required.</span>
         </div>
         <div class="col">
             <label for="date1"><strong>Starting Date</strong></label>
-            <input ng-model="date1"type="date" id="date1" name="date1" placeholder="Enter Date" required>
+            <input style="background: #ffffff" ng-model="date1"type="date" id="date1" name="date1" placeholder="Enter Date" required>
             <span style="color:red" ng-show="longEventForm.date1.$error.required && !longEventForm.date1.$pristine">Start Date is
                 required.</span>
         </div>
         <div class="col">
             <label for="date2"><strong>Ending Date</strong></label>
-            <input ng-model="date2"type="date" id="date2" name="date2" placeholder="Enter Date" required>
+            <input style="background: #ffffff" ng-model="date2"type="date" id="date2" name="date2" placeholder="Enter Date" required>
             <span style="color:red" ng-show="longEventForm.date2.$error.required && !longEventForm.date2.$pristine">End Date is
                 required.</span>
             <button ng-disabled="longEventForm.$invalid" style="margin-bottom: 20px" class="btn btn-primary purple-background"
