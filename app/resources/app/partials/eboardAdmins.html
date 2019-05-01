@@ -21,7 +21,7 @@
           <tr ng-repeat="adminer in admin">
             <td>{{adminer.username}}</td>
             <td>{{adminer.createdAt | date: 'medium'}}</td>
-            <td style="width: 2%"><button class="btn btn-danger" ng-click="remove(adminer._id)">Delete</button></td>
+            <td style="width: 2%"><button class="btn btn-danger" ng-click="remove(adminer._id)" ng-disabled="adminer.locked">Delete</button></td>
           </tr>
         </tbody>
       </table>

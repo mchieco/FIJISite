@@ -68,9 +68,22 @@ module.exports = {
         Admin.find({}).exec()
         .then(admins=>{
             let safeList = admins.map(admin=>{
-                return {username:admin.username,updatedAt:admin.updatedAt,_id:admin._id,createdAt:admin.createdAt};
+                return {username:admin.username,updatedAt:admin.updatedAt,_id:admin._id,createdAt:admin.createdAt,locked:admin.locked};
             }).sort((a,b)=>{
                 return (new Date(a.createdAt).valueOf() - new Date(b.createdAt).valueOf())
+            })
+            let young = 0;
+            let y_admin = null;
+            safeList.forEach(admin=>{
+                if(new Date(admin.createdAt).valueOf() >= young){
+                    young = new Date(admin.createdAt).valueOf();
+                    y_admin = admin;
+                }
+            })
+            safeList.forEach(admin=>{
+                if(admin._id == y_admin._id){
+                    admin.locked = true;
+                }
             })
             res.status(200).json(safeList);
         })
