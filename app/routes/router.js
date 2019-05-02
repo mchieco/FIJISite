@@ -6,9 +6,12 @@ const recruitment_controller = require("./controllers/recruitment");
 const contactus_controller = require("./controllers/contactus");
 const auth = require("../bin/auth")
 const checkAdmin = auth.checkAdmin;
+const ExpressBruteFlexible = require("rate-limiter-flexible/lib/ExpressBruteFlexible");
 // function checkAdmin(req,res,next){
 //     next();
 // }
+
+var bruteforce = new ExpressBruteFlexible(ExpressBruteFlexible.LIMITER_TYPES.MEMORY);
 
 router.route("/event")
 .all((req,res,next)=>{
@@ -27,7 +30,7 @@ router.route("/contactus")
 })
 .get(checkAdmin,contactus_controller.get)//Admin
 .put(checkAdmin,contactus_controller.update) //Admin
-.post(contactus_controller.create) //Public
+.post(bruteforce.prevent, contactus_controller.create) //Public
 .delete(checkAdmin,contactus_controller.delete); //Admin
 
 router.route("/auth")
@@ -36,7 +39,7 @@ router.route("/auth")
     next();
 })
 .post(checkAdmin,admin_controller.create)
-.put(admin_controller.login);
+.put(bruteforce.prevent, admin_controller.login);
 
 router.put("/auth/logout",admin_controller.logout);
 router.get("/auth/logout",admin_controller.logout);
@@ -53,7 +56,7 @@ router.route("/application")
 })
 .get(checkAdmin,recruitment_controller.get)//Admin
 .put(checkAdmin,recruitment_controller.update) //Admin
-.post(recruitment_controller.create) //Public
+.post(bruteforce.prevent, recruitment_controller.create) //Public
 .delete(checkAdmin,recruitment_controller.delete); //Admin
 
 
