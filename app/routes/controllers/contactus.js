@@ -68,6 +68,17 @@ module.exports = {
 
     delete(req,res,next){
         console.log("Removing....");
+        if (req.query.hasOwnProperty("all") && req.query.all =='true') {
+            Contact.deleteMany({}).exec()
+                .then(() => {
+                    res.status(204).end();
+                })
+                .catch(err => {
+                    res.status(500).end();
+                })
+            return;
+        }
+        console.log("Removing....");
         if(!req.query.hasOwnProperty("id")){
             return res.status(400).send("Missing ID Parameter.");
         }

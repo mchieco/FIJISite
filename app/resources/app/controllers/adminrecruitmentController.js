@@ -23,13 +23,19 @@ fijiApp.controller('adminrecruitmentController', function($scope, $http) {
       XLSX.writeFile(wb, "fijiRecruitment.xlsx");
     }
     $scope.remove = function(id,reload=true) {
-      console.log(id);
-      $http.delete('/application?id=' + id)
-      .then(function(res) {
-        if(reload){
-          window.location.reload();
-        }
-      });
+      return new Promise((resolve, reject) => {
+        console.log(id);
+        $http.delete('/application?id=' + id)
+        .then(function(res) {
+          resolve();
+          if(reload){
+            window.location.reload();
+          }
+        })
+        .catch(err=>{
+          reject(err);
+        })
+      })
     };
     /**
      * @typedef {Object} recruitment
@@ -44,9 +50,17 @@ fijiApp.controller('adminrecruitmentController', function($scope, $http) {
       if(!confirm("Are you sure you want to remove all the data?\n\nThis cannot be undone.")){
         return;
       }
-      console.log(data);
-      data.forEach(object=>{
-        $scope.remove(object._id,true);
+      return new Promise((resolve, reject) => {
+        $http.delete(`/application?all=${encodeURI(true)}`)
+        .then(function(res) {
+          resolve();
+          if(reload){
+            window.location.reload();
+          }
+        })
+        .catch(err=>{
+          reject(err);
+        })
       })
     };
     $scope.save = function(data, id) {

@@ -24,11 +24,18 @@ fijiApp.controller('admincontactController', function($scope, $http) {
       if(!confirm("Are you sure you want to remove all the data?\n\nThis cannot be undone.")){
         return;
       }
-      console.log(data);
-      data.forEach(object=>{
-        $scope.remove(object._id,);
-      });
-      window.location.reload();
+      return new Promise((resolve, reject) => {
+        $http.delete(`/contactus?all=${encodeURI(true)}`)
+        .then(function(res) {
+          resolve();
+          if(reload){
+            window.location.reload();
+          }
+        })
+        .catch(err=>{
+          reject(err);
+        })
+      })
     };
     $scope.save = function(data, id) {
       //$scope.user not updated yet
