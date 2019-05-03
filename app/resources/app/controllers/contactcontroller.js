@@ -14,6 +14,7 @@ fijiApp.controller('contactController', function ($scope, $http) {
     })
       .success(function (data) {
         clearField();
+        alert("Thanks " + $scope.fname + ", for contacting us, we will be in touch soon!");
       });
   };
 });
