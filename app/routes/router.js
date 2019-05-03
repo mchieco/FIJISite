@@ -39,7 +39,7 @@ router.route("/auth")
     next();
 })
 .post(checkAdmin,admin_controller.create)
-.put(bruteforce.prevent, admin_controller.login);
+.put(admin_controller.login);
 
 router.put("/auth/logout",admin_controller.logout);
 router.get("/auth/logout",admin_controller.logout);
