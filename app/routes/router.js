@@ -30,7 +30,7 @@ router.route("/contactus")
 })
 .get(checkAdmin,contactus_controller.get)//Admin
 .put(checkAdmin,contactus_controller.update) //Admin
-.post(bruteforce.prevent, contactus_controller.create) //Public
+.post(contactus_controller.create) //Public
 .delete(checkAdmin,contactus_controller.delete); //Admin
 
 router.route("/auth")
@@ -56,7 +56,7 @@ router.route("/application")
 })
 .get(checkAdmin,recruitment_controller.get)//Admin
 .put(checkAdmin,recruitment_controller.update) //Admin
-.post(bruteforce.prevent, recruitment_controller.create) //Public
+.post(recruitment_controller.create) //Public
 .delete(checkAdmin,recruitment_controller.delete); //Admin
 
 
