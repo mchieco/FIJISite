@@ -14,6 +14,7 @@ fijiApp.controller('recController', function($scope, $http) {
        })
         .success(function(data) {
           clearField();
+          alert("Thanks " + $scope.fname + ", for your information to be a part of the recruitment process!");
         });
       };
   });
