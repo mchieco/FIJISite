@@ -18,147 +18,141 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-		crossorigin="anonymous"></script>
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+	</script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-		crossorigin="anonymous"></script>
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.9.0/css/xeditable.min.css"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-xeditable/0.9.0/js/xeditable.min.js"></script>
 </head>
-<header>
-	<div class="header">
-		<a href="https://www.facebook.com/qufiji/" class="fa fa-facebook"></a>
-		<a href="https://twitter.com/quinnipiacfiji?lang=en" class="fa fa-twitter"></a>
-		<a href="https://www.instagram.com/quinnipiacfiji/?hl=en" class="fa fa-instagram"></a>
-		<button onclick="document.getElementById('id01').style.display='block'"
-			style="width:auto; height: 50px; background-color: #663399; margin-left: 15px;" id="login_btn">Eboard
-			Login</button>
+<nav class="navbar navbar-expand-lg bgnav">
+	<a class="navbar-brand" href="index.html">
+		<img src="./images/Phi-Gamma-Delta-BCL-Logo---WEBSITE.png" width="200" height="50" alt="">
+	</a>
+	<button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+		aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="index.html">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link active" href="about.html">About</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="philanthropy.html">Philanthropy</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="currentbrothers.html">Current Brothers</a>
+			</li>
+			<li class="nav-item ">
+				<a class="nav-link" href="recruitment.html">Recruitment</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="upcomingevents.html">Upcoming Events</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="contactpage.html">Contact</a>
+			</li>
 	</div>
-	<div id="id01" class="modal">
-		<form class="modal-content animate" id="my_form" ng-controller="loginController" ng-submit="submitForm()">
-
-
-			<div class="container">
-				<label for="uname"><b>Username</b></label>
-				<input type="text" placeholder="Enter Username" name="uname" ng-model="username" required>
-
-				<label for="psw"><b>Password</b></label>
-				<input type="password" placeholder="Enter Password" name="psw" ng-model="password" required>
-
-				<button style="background-color: #663399;" type="submit">Login</button>
-				<label>
-					<input type="checkbox" checked="checked" name="remember"> Remember me
-				</label>
-			</div>
-
-			<div class="container" style="background-color:#f1f1f1">
-				<button type="button" onclick="document.getElementById('id01').style.display='none'"
-					class="cancelbtn">Cancel</button>
-				<span class="psw">Forgot <a href="#">password?</a></span>
-			</div>
-		</form>
-	</div>
-	<script>
-		// Get the modal
-		var modal = document.getElementById('id01');
-
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function (event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-		}
-	</script>
-</header>
-
-<body>
-	<!-- NavBar -->
-	<nav class="navbar navbar-expand-lg bgnav">
-		<a class="navbar-brand" href="index.html">
-			<img src="./images/Phi-Gamma-Delta-BCL-Logo---WEBSITE.png" width="200" height="50" alt="">
-		</a>
-		<button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="index.html">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="about.html">About</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="philanthropy.html">Philanthropy</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="currentbrothers.html">Current Brothers</a>
-				</li>
-				<li class="nav-item ">
-					<a class="nav-link" href="recruitment.html">Recruitment</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="upcomingevents.html">Upcoming Events</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link active" href="contactpage.html">Contact</a>
-				</li>
+	<header>
+		<div class="header">
+			<a href="https://www.facebook.com/qufiji/" class="fa fa-facebook"></a>
+			<a href="https://twitter.com/quinnipiacfiji?lang=en" class="fa fa-twitter"></a>
+			<a href="https://www.instagram.com/quinnipiacfiji/?hl=en" class="fa fa-instagram"></a>
+			<button onclick="document.getElementById('id01').style.display='block'"
+				style="width:auto; height: 50px; background-color: #663399; margin-left: 15px;" id="login_btn">Eboard
+				Login</button>
 		</div>
-	</nav>
-	<script>
-		function eventSubmit() {
-			alert("Your event has been successfully been submitted!");
-		}
-	</script>
-	<div style="padding-top: 15px">
-		<div class="container">
-			<h1>Contact Us</h1>
-			<form name="contactForm" id="contactForm" ng-submit="submitForm()" ng-controller="contactController"
-				novalidate>
+		<div id="id01" class="modal">
+			<form class="modal-content animate" id="my_form" ng-controller="loginController" ng-submit="submitForm()">
 
-				<span style="color:red"
-					ng-show="contactForm.fname.$error.required && !contactForm.fname.$pristine">First Name is
-					required.</span>
-				<span style="color:red" ng-show="contactForm.fname.$error.pattern">Name too long.</span>
-				<input ng-pattern="/^\w{1,15}$/" ng-model="fname" type="text" id="fname" name="fname"
-					placeholder="First Name" required>
 
-				<span style="color:red" ng-show="contactForm.lname.$error.required && !contactForm.lname.$pristine">Last
-					Name is required.</span>
-				<span style="color:red" ng-show="contactForm.lname.$error.pattern">Name too long.</span>
-				<input ng-pattern="/^\w{1,17}$/" ng-model="lname" type="text" id="lname" name="lname"
-					placeholder="Last Name" required>
+				<div class="container">
+					<label for="uname"><b>Username</b></label>
+					<input type="text" placeholder="Enter Username" name="uname" ng-model="username" required>
 
-				<span style="color:red"
-					ng-show="contactForm.email.$error.required && !contactForm.email.$pristine">Email is
-					required.</span>
-				<span style="color:red" ng-show="contactForm.email.$error.email">Invalid email address.</span>
-				<input ng-model="email" type="email" id="email" name="email" placeholder="Email" required>
+					<label for="psw"><b>Password</b></label>
+					<input type="password" placeholder="Enter Password" name="psw" ng-model="password" required>
 
-				<span style="color:red"
-					ng-show="contactForm.subject.$error.required && !contactForm.subject.$pristine">Subject is
-					Required.</span>
-				<span style="color:red" ng-show="contactForm.subject.$error.pattern">Message too long.</span>
-				<textarea ng-pattern="/^.{1,250}$/" ng-model="subject" id="subject" name="subject" placeholder="Write something.."
-					style="height:200px" required></textarea>
+					<button style="background-color: #663399;" type="submit">Login</button>
+					<label>
+						<input type="checkbox" checked="checked" name="remember"> Remember me
+					</label>
+				</div>
 
-				<input style="background-color: #663399" ng-disabled="recForm.$invalid" type="submit" value="Submit">
-
+				<div class="container" style="background-color:#f1f1f1">
+					<button type="button" onclick="document.getElementById('id01').style.display='none'"
+						class="cancelbtn">Cancel</button>
+					<span class="psw">Forgot <a href="#">password?</a></span>
+				</div>
 			</form>
 		</div>
+		<script>
+			// Get the modal
+			var modal = document.getElementById('id01');
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function (event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
+		</script>
+	</header>
+</nav>
+<script>
+	function eventSubmit() {
+		alert("Your event has been successfully been submitted!");
+	}
+</script>
+<div style="padding-top: 15px">
+	<div class="container">
+		<h1>Contact Us</h1>
+		<form name="contactForm" id="contactForm" ng-submit="submitForm()" ng-controller="contactController" novalidate>
+
+			<span style="color:red" ng-show="contactForm.fname.$error.required && !contactForm.fname.$pristine">First
+				Name is
+				required.</span>
+			<span style="color:red" ng-show="contactForm.fname.$error.pattern">Name too long.</span>
+			<input ng-pattern="/^\w{1,15}$/" ng-model="fname" type="text" id="fname" name="fname"
+				placeholder="First Name" required>
+
+			<span style="color:red" ng-show="contactForm.lname.$error.required && !contactForm.lname.$pristine">Last
+				Name is required.</span>
+			<span style="color:red" ng-show="contactForm.lname.$error.pattern">Name too long.</span>
+			<input ng-pattern="/^\w{1,17}$/" ng-model="lname" type="text" id="lname" name="lname"
+				placeholder="Last Name" required>
+
+			<span style="color:red" ng-show="contactForm.email.$error.required && !contactForm.email.$pristine">Email is
+				required.</span>
+			<span style="color:red" ng-show="contactForm.email.$error.email">Invalid email address.</span>
+			<input ng-model="email" type="email" id="email" name="email" placeholder="Email" required>
+
+			<span style="color:red"
+				ng-show="contactForm.subject.$error.required && !contactForm.subject.$pristine">Subject is
+				Required.</span>
+			<span style="color:red" ng-show="contactForm.subject.$error.pattern">Message too long.</span>
+			<textarea ng-pattern="/^.{1,250}$/" ng-model="subject" id="subject" name="subject"
+				placeholder="Write something.." style="height:200px" required></textarea>
+
+			<input style="background-color: #663399" ng-disabled="recForm.$invalid" type="submit" value="Submit">
+
+		</form>
 	</div>
-	<footer class="footer">
-		<div class="container2">
-			<span class="text-muted">© 2018 Copyright: Quinnipiac FIJI - <a id="footer"
-					href="https://www.phigam.org">Phi
-					Gamma Delta Headquarters</a> - Created and Maintained by Joe Passanate and Matt Chieco </span>
-		</div>
-	</footer>
+</div>
+<footer class="footer">
+	<div class="container2">
+		<span class="text-muted">© 2018 Copyright: Quinnipiac FIJI - <a id="footer" href="https://www.phigam.org">Phi
+				Gamma Delta Headquarters</a> - Created and Maintained by Joe Passanate and Matt Chieco </span>
+	</div>
+</footer>
 </body>
 
 <script type='text/javascript' src="./app/app.js"></script>
