@@ -201,8 +201,7 @@ footer {
     right: 0;
     margin-top: 30px;
     padding: 20px;
-    min-height:100%;
-    position:relative;
+    position:fixed;
     /* Set the fixed height of the footer here */
      /* Vertically center the text there */
     background-color: whitesmoke;
@@ -212,7 +211,6 @@ footer {
     padding-left: 15px;
     padding-top: 15px;
 }
-
 .paragraph {
     padding-right: 10px;
     padding-left: 20px;
