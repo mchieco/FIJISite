@@ -258,3 +258,8 @@ h1 {
 .container > ul {
 	padding-left: 40px;
 }
+@media screen and (max-width: 1000px) {
+    footer {
+      position: relative;
+    }
+  }

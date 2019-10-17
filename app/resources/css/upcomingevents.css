@@ -208,3 +208,8 @@ footer {
     background-color: transparent;
     color:grey;
 }
+@media screen and (max-width: 1000px) {
+    footer {
+      position: relative;
+    }
+}

@@ -159,3 +159,8 @@ cursor: pointer;
     background-color: #663399;
     color: #f1f1f1;
 }
+@media screen and (max-width: 1000px) {
+    footer {
+      position: relative;
+    }
+  }
