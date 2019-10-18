@@ -1,0 +1,15 @@
+You need two files in a config file under app with this data:
+/*
+config/dbconfig.js
+*/
+module.exports = {
+    'url':''
+}
+
+/*
+config/CONSTANTS.js
+*/
+module.exports = {
+    cookieName: "Name_Of_Cookie_In_Thing",
+    secret: "Secret_For_Signing_Tokens"
+}
