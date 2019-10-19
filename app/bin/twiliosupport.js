@@ -49,7 +49,7 @@ let actions = {
                     to: String(to)
                 })
                 .then(message => resolve(message))
-                .catch(data => (safe)?resolve():reject(data))
+                .catch(data => ((safe)?resolve():reject(data)))
                 .done();
 
         })
