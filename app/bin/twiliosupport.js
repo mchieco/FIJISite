@@ -1,4 +1,7 @@
-const client = require('twilio')(accountSid, authToken);
+const TWILIO_CONFIG = require("../../app/config/CONSTANTS")
+
+
+const client = require('twilio')(TWILIO_CONFIG.twilio_account_sid, TWILIO_CONFIG.twilio_auth_token);
 
 let actions = {
     /**
